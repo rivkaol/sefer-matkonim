@@ -4,12 +4,15 @@ import {
   Check, Heart, Leaf, BookOpen, Smile, 
   ArrowLeft, ChefHat, Instagram, Facebook, Mail,
   UtensilsCrossed, Clock, Trash2, Search, Gift,
-  Target, Image as ImageIcon
+  Target
 } from 'lucide-react';
 
 const LandingPage = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState(null);
+
+  // External Purchase Link
+  const purchaseLink = "https://private.invoice4u.co.il/newsite/he/clearing/public/i4u-clearing?ProductGuid=01f99036-3332-4744-a2bc-1a6f96893572";
 
   // Colors based on Design System
   const colors = {
@@ -33,11 +36,11 @@ const LandingPage = () => {
     { icon: <BookOpen className="w-6 h-6 text-accent" />, text: "15 מתכוני חגים" },
   ];
 
-  // Testimonials Data (Text removed from display as requested, keeping rating and logic)
+  // Testimonials Data - Mapped to uploaded images
   const testimonials = [
-    { rating: 5, id: 1 },
-    { rating: 5, id: 2 },
-    { rating: 5, id: 3 }
+    { id: 1, image: "hamlza1.png" },
+    { id: 2, image: "hamlza2.png" },
+    { id: 3, image: "hamlza3.png" }
   ];
 
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
@@ -50,7 +53,7 @@ const LandingPage = () => {
     setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
   };
 
-  // Recipes Data for Carousel
+  // Recipes Data for Carousel - Mapped to uploaded images
   const recipes = [
     {
       title: "סניקרס שוקולד",
@@ -58,7 +61,7 @@ const LandingPage = () => {
       tag: "ללא סוכר",
       difficulty: "קל",
       time: "20 דקות",
-      imgText: "[תמונה: יחס 3:4]"
+      image: "snikers.png"
     },
     {
       title: "פיצה קוטג׳",
@@ -66,7 +69,7 @@ const LandingPage = () => {
       tag: "עשיר בחלבון",
       difficulty: "קל",
       time: "10 דקות",
-      imgText: "[תמונה: יחס 3:4]"
+      image: "pizza.png"
     },
     {
       title: "מגולגלות שוקולד פרג",
@@ -74,7 +77,7 @@ const LandingPage = () => {
       tag: "ללא סוכר",
       difficulty: "קל",
       time: "20 דקות",
-      imgText: "[תמונה: יחס 3:4]"
+      image: "megolglot.png"
     }
   ];
 
@@ -124,6 +127,10 @@ const LandingPage = () => {
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
           }
           .btn-gold:hover {
             transform: scale(1.05);
@@ -193,9 +200,9 @@ const LandingPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             <div className="flex-shrink-0 flex items-center gap-3">
-               {/* Logo Placeholder */}
-               <div className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center overflow-hidden bg-white">
-                  <span className="text-[10px] text-gray-400 font-bold text-center leading-tight">LOGO</span>
+               {/* Logo Image */}
+               <div className="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center overflow-hidden bg-white">
+                  <img src="logo.jpg.png" alt="לוגו רבקה הולצברג" className="w-full h-full object-cover" />
                </div>
                <span className="font-bold text-xl hidden sm:block text-primary tracking-tight">רבקה הולצברג</span>
             </div>
@@ -204,9 +211,9 @@ const LandingPage = () => {
               <a href="#preview" className="text-gray-600 hover:text-primary transition font-medium">מה בספר</a>
               <a href="#testimonials" className="text-gray-600 hover:text-primary transition font-medium">המלצות</a>
               <a href="#faq" className="text-gray-600 hover:text-primary transition font-medium">שאלות</a>
-              <button className="btn-gold px-6 py-2 rounded-full font-bold shadow-lg shadow-gold/20">
+              <a href={purchaseLink} target="_blank" rel="noopener noreferrer" className="btn-gold px-6 py-2 rounded-full font-bold shadow-lg shadow-gold/20">
                 לרכישה מהירה
-              </button>
+              </a>
             </div>
             <div className="md:hidden flex items-center">
               <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-primary p-2">
@@ -223,9 +230,9 @@ const LandingPage = () => {
               <a href="#about" className="block px-3 py-2 text-gray-600 font-medium">אודות</a>
               <a href="#preview" className="block px-3 py-2 text-gray-600 font-medium">מה בספר</a>
               <a href="#testimonials" className="block px-3 py-2 text-gray-600 font-medium">המלצות</a>
-              <button className="w-full text-right mt-4 btn-gold px-6 py-3 rounded-full font-bold">
+              <a href={purchaseLink} target="_blank" rel="noopener noreferrer" className="w-full text-center mt-4 btn-gold px-6 py-3 rounded-full font-bold block">
                 לרכישה מהירה
-              </button>
+              </a>
             </div>
           </div>
         )}
@@ -260,7 +267,7 @@ const LandingPage = () => {
                 <br/><strong>הצטרפי למטבח הבריא והשמח שלי.</strong>
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
-                <a href="#purchase" className="btn-gold px-8 py-4 rounded-full font-bold text-lg shadow-xl shadow-gold/30 flex items-center justify-center gap-2 hover:-translate-y-1 transition-transform">
+                <a href="#preview" className="btn-gold px-8 py-4 rounded-full font-bold text-lg shadow-xl shadow-gold/30 flex items-center justify-center gap-2 hover:-translate-y-1 transition-transform">
                   👀 תראי לי איזה מתכונים יש בפנים!
                 </a>
               </div>
@@ -268,15 +275,14 @@ const LandingPage = () => {
 
             {/* Image Side (Second in RTL = Left Side) */}
             <div className="relative mx-auto lg:ml-0 animate-float">
-               {/* Book Mockup Placeholder */}
+               {/* Book Mockup with Real Image */}
               <div className="relative w-72 h-[450px] sm:w-80 sm:h-[500px] bg-gradient-to-tr from-gray-100 to-white rounded-r-xl rounded-l-md shadow-[20px_20px_60px_rgba(0,0,0,0.15)] border-l-[12px] border-primary flex items-center justify-center transform rotate-[-3deg] hover:rotate-0 transition duration-700 ease-out group overflow-hidden">
                 {/* Book Shine Effect */}
-                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/40 to-transparent z-10 opacity-0 group-hover:opacity-100 transition duration-700"></div>
+                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/40 to-transparent z-10 opacity-0 group-hover:opacity-100 transition duration-700 pointer-events-none"></div>
                 
-                {/* Full Height Book Cover Container */}
-                <div className="w-full h-full bg-green-50 rounded-r-xl rounded-l-md flex items-center justify-center border border-green-100 p-2 overflow-hidden">
-                     {/* Simulating A4 ratio roughly */}
-                     <span className="text-primary font-bold opacity-30 text-center">[תמונת שער A4]</span>
+                {/* Full Height Book Cover Image */}
+                <div className="w-full h-full bg-white rounded-r-xl rounded-l-md overflow-hidden">
+                     <img src="daf shaar.png" alt="כריכת הספר - המטבח הבריא" className="w-full h-full object-cover" />
                 </div>
               </div>
               
@@ -330,7 +336,7 @@ const LandingPage = () => {
             </div>
           </div>
 
-          {/* Reverted & Enhanced "Hardest Part" Design with Interaction */}
+          {/* Hardest Part Design */}
           <div className="mt-20 relative inline-block group cursor-pointer">
              <div className="absolute inset-0 bg-accent blur-2xl opacity-20 rounded-full group-hover:opacity-40 transition-opacity duration-500"></div>
              <div className="relative p-8 bg-white/80 backdrop-blur-md rounded-3xl border border-primary/20 shadow-lg max-w-2xl mx-auto transform transition-all duration-300 group-hover:scale-105 group-hover:shadow-2xl group-hover:border-accent/50">
@@ -374,8 +380,8 @@ const LandingPage = () => {
                <div className="order-1 md:order-2 relative">
                  <div className="absolute inset-0 bg-accent rounded-full transform translate-x-4 translate-y-4 opacity-20 blur-md"></div>
                  <div className="relative w-full aspect-square rounded-full overflow-hidden border-[10px] border-white shadow-2xl bg-gray-100 flex items-center justify-center">
-                    {/* Portrait Placeholder */}
-                    <span className="text-gray-400 font-medium text-center">[תמונת פרופיל<br/>יחס 1:1]</span>
+                    {/* Portrait Image */}
+                    <img src="profile.jpg.jpg" alt="רבקה הולצברג" className="w-full h-full object-cover" />
                  </div>
                  {/* Quote Bubble */}
                  <div className="absolute -bottom-4 -left-4 bg-white p-4 rounded-xl shadow-lg border-r-4 border-primary max-w-[180px]">
@@ -415,8 +421,12 @@ const LandingPage = () => {
                    
                    {/* Recipe Image */}
                    <div className="h-72 md:h-96 bg-gray-100 rounded-2xl flex items-center justify-center relative overflow-hidden group">
-                      <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition duration-500"></div>
-                      <span className="text-gray-400 font-bold text-lg text-center">{recipes[currentRecipe].imgText}</span>
+                      <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition duration-500 pointer-events-none"></div>
+                      <img 
+                        src={recipes[currentRecipe].image} 
+                        alt={recipes[currentRecipe].title}
+                        className="w-full h-full object-cover"
+                      />
                       <div className="absolute bottom-6 left-6 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-bold text-primary shadow-lg flex items-center gap-2">
                         <Star size={14} className="fill-accent text-accent"/> {recipes[currentRecipe].tag}
                       </div>
@@ -443,7 +453,7 @@ const LandingPage = () => {
                </div>
                
                <div className="text-center mt-12">
-                 <a href="#purchase" className="btn-gold inline-flex items-center gap-3 px-12 py-5 rounded-full font-bold text-xl shadow-xl hover:shadow-gold/40 transition-all group">
+                 <a href={purchaseLink} target="_blank" rel="noopener noreferrer" className="btn-gold inline-flex items-center gap-3 px-12 py-5 rounded-full font-bold text-xl shadow-xl hover:shadow-gold/40 transition-all group">
                     <span>כן, אני רוצה את הספר</span>
                     <ArrowLeft size={24} className="group-hover:-translate-x-1 transition-transform" />
                  </a>
@@ -499,11 +509,14 @@ const LandingPage = () => {
                 ))}
              </div>
              
-             {/* User Info with Recommendation Letter Image Placeholder - Width 1000px equivalent, 5:4 ratio */}
+             {/* Recommendation Image */}
              <div className="flex flex-col items-center gap-4">
-                <div className="w-80 h-64 rounded-lg bg-gray-100 border-2 border-dashed border-gray-300 flex flex-col items-center justify-center p-2 transform rotate-2 hover:rotate-0 transition duration-300 shadow-sm cursor-pointer hover:border-accent">
-                   <ImageIcon size={32} className="text-gray-300 mb-2"/>
-                   <span className="text-[12px] text-gray-500 text-center leading-tight">צילום המלצה<br/>יחס 5:4<br/>(1000x800)</span>
+                <div className="w-80 h-auto rounded-lg bg-gray-100 border-2 border-dashed border-gray-300 flex flex-col items-center justify-center p-2 transform rotate-2 hover:rotate-0 transition duration-300 shadow-sm hover:border-accent overflow-hidden">
+                   <img 
+                    src={testimonials[currentTestimonial].image} 
+                    alt="המלצה"
+                    className="w-full h-auto object-contain"
+                   />
                 </div>
              </div>
 
@@ -591,10 +604,10 @@ const LandingPage = () => {
                   </div>
                </div>
                
-               <button className="w-full btn-gold py-5 rounded-full font-bold text-xl shadow-xl shadow-gold/30 mb-6 flex justify-center items-center gap-3 group">
+               <a href={purchaseLink} target="_blank" rel="noopener noreferrer" className="w-full btn-gold py-5 rounded-full font-bold text-xl shadow-xl shadow-gold/30 mb-6 flex justify-center items-center gap-3 group">
                  <span>כן, אני רוצה את הספר!</span>
                  <ArrowLeft className="group-hover:-translate-x-1 transition-transform"/>
-               </button>
+               </a>
                
                <div className="flex justify-center gap-6 text-xs text-gray-400 font-medium uppercase tracking-wide">
                  <span className="flex items-center gap-1"><Check size={14} className="text-green-500"/> תשלום מאובטח</span>
@@ -609,8 +622,8 @@ const LandingPage = () => {
         <div className="max-w-3xl mx-auto px-4 space-y-8">
            {/* Logo in Footer */}
            <div className="w-24 h-24 bg-white rounded-full mx-auto flex items-center justify-center border-4 border-white/10 overflow-hidden relative shadow-lg">
-               {/* Logo Placeholder - Matches Nav Style but Larger */}
-              <span className="text-primary font-bold text-sm">LOGO</span>
+               {/* Logo Image */}
+               <img src="logo.jpg.png" alt="לוגו רבקה הולצברג" className="w-full h-full object-cover" />
            </div>
            
            <div>
@@ -627,8 +640,8 @@ const LandingPage = () => {
                 <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-accent hover:text-white transition duration-300"><Facebook size={20}/></a>
                 <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-accent hover:text-white transition duration-300"><Mail size={20}/></a>
              </div>
-             <p className="text-xs text-gray-600">
-               © 2025 כל הזכויות שמורות לרבקה הולצברג | נבנה באהבה
+             <p className="text-sm text-gray-400">
+               בריאות שבאה מהטבע | מועדון הפרימיום של רבקה הולצברג
              </p>
            </div>
         </div>
