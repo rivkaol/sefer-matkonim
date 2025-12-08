@@ -1,0 +1,640 @@
+import React, { useState } from 'react';
+import { 
+  Menu, X, ChevronLeft, ChevronRight, Star, 
+  Check, Heart, Leaf, BookOpen, Smile, 
+  ArrowLeft, ChefHat, Instagram, Facebook, Mail,
+  UtensilsCrossed, Clock, Trash2, Search, Gift,
+  Target, Image as ImageIcon
+} from 'lucide-react';
+
+const LandingPage = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [openFaq, setOpenFaq] = useState(null);
+
+  // Colors based on Design System
+  const colors = {
+    primary: '#1B4D3E', // Green
+    accent: '#D4AF37',  // Gold
+    bg: '#F8F9FA',      // Cream
+    text: '#333333',    // Dark Grey
+  };
+
+  const toggleFaq = (index) => {
+    setOpenFaq(openFaq === index ? null : index);
+  };
+
+  // Content Data
+  const features = [
+    { icon: <ChefHat className="w-6 h-6 text-accent" />, text: "12 מאפים מלוחים" },
+    { icon: <Leaf className="w-6 h-6 text-accent" />, text: "11 מנות עיקריות" },
+    { icon: <Heart className="w-6 h-6 text-accent" />, text: "10 מתכונים עם טופו" },
+    { icon: <Star className="w-6 h-6 text-accent" />, text: "19 עוגות בריאות" },
+    { icon: <Smile className="w-6 h-6 text-accent" />, text: "15 נשנושים מתוקים" },
+    { icon: <BookOpen className="w-6 h-6 text-accent" />, text: "15 מתכוני חגים" },
+  ];
+
+  // Testimonials Data (Text removed from display as requested, keeping rating and logic)
+  const testimonials = [
+    { rating: 5, id: 1 },
+    { rating: 5, id: 2 },
+    { rating: 5, id: 3 }
+  ];
+
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
+
+  const nextTestimonial = () => {
+    setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+  };
+
+  const prevTestimonial = () => {
+    setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  };
+
+  // Recipes Data for Carousel
+  const recipes = [
+    {
+      title: "סניקרס שוקולד",
+      desc: "מתוק ועשיר, פינוק אמיתי. חטיף אנרגיה מושלם שמרגיש כמו הממתק המוכר אבל בגרסה בריאה ומזינה יותר. הביס המושלם ליד הקפה.",
+      tag: "ללא סוכר",
+      difficulty: "קל",
+      time: "20 דקות",
+      imgText: "[תמונה: יחס 3:4]"
+    },
+    {
+      title: "פיצה קוטג׳",
+      desc: "פיצה אישית, מהירה ובריאה. הפתרון המושלם לארוחת ערב קלילה וטעימה שילדים ומבוגרים טורפים. בצק עשיר בחלבון וללא שמרים.",
+      tag: "עשיר בחלבון",
+      difficulty: "קל",
+      time: "10 דקות",
+      imgText: "[תמונה: יחס 3:4]"
+    },
+    {
+      title: "מגולגלות שוקולד פרג",
+      desc: "בצק פריך ונימוח שאי אפשר להפסיק לאכול, עם מילוי עשיר של שוקולד ופרג. המתכון הזה מוכיח שאפשר להנות מכל ביס בלי רגשות אשם.",
+      tag: "ללא סוכר",
+      difficulty: "קל",
+      time: "20 דקות",
+      imgText: "[תמונה: יחס 3:4]"
+    }
+  ];
+
+  const [currentRecipe, setCurrentRecipe] = useState(0);
+
+  const nextRecipe = () => {
+    setCurrentRecipe((prev) => (prev + 1) % recipes.length);
+  };
+
+  const prevRecipe = () => {
+    setCurrentRecipe((prev) => (prev - 1 + recipes.length) % recipes.length);
+  };
+
+
+  return (
+    <div dir="rtl" className="min-h-screen font-sans overflow-x-hidden" style={{ backgroundColor: colors.bg, color: colors.text, fontFamily: "'Rubik', sans-serif" }}>
+      {/* Invisible SVG definition for Gold Gradient */}
+      <svg width="0" height="0" className="absolute">
+        <linearGradient id="gold-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop stopColor="#F9E79F" offset="0%" />
+          <stop stopColor="#D4AF37" offset="50%" />
+          <stop stopColor="#B7950B" offset="100%" />
+        </linearGradient>
+      </svg>
+
+      {/* Import Font */}
+      <style>
+        {`
+          @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700;900&display=swap');
+          
+          .glass-card {
+            background: rgba(255, 255, 255, 0.90);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+          }
+          
+          .glass-card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.12);
+            border-color: ${colors.accent};
+          }
+
+          .btn-gold {
+            background: linear-gradient(135deg, ${colors.accent} 0%, #E5C565 100%);
+            color: white;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+          }
+          .btn-gold:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.4);
+          }
+          
+          .icon-circle {
+            background: rgba(27, 77, 62, 0.08);
+            color: ${colors.primary};
+            transition: all 0.3s ease;
+          }
+          
+          .glass-card-hover:hover .icon-circle {
+            background: ${colors.primary};
+            color: #D4AF37;
+          }
+
+          .text-primary { color: ${colors.primary}; }
+          .bg-primary { background-color: ${colors.primary}; }
+          .border-primary { border-color: ${colors.primary}; }
+          .text-accent { color: ${colors.accent}; }
+          
+          @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+          }
+          .animate-float {
+            animation: float 6s ease-in-out infinite;
+          }
+
+          @keyframes shine {
+            0% { background-position: 200% center; }
+            100% { background-position: -200% center; }
+          }
+          .animate-shine {
+            background: linear-gradient(
+              to right, 
+              #D4AF37 20%, 
+              #F9E79F 40%, 
+              #D4AF37 60%, 
+              #B7950B 80%
+            );
+            background-size: 200% auto;
+            animation: shine 3s linear infinite;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+          }
+          
+          .gold-badge-shine {
+             background: linear-gradient(
+              to right, 
+              #B7950B 0%, 
+              #D4AF37 40%, 
+              #F9E79F 50%, 
+              #D4AF37 60%, 
+              #B7950B 100%
+            );
+            background-size: 200% auto;
+            animation: shine 4s linear infinite;
+          }
+        `}
+      </style>
+
+      {/* Navigation */}
+      <nav className="fixed w-full z-50 glass-card border-b border-gray-100/50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-20">
+            <div className="flex-shrink-0 flex items-center gap-3">
+               {/* Logo Placeholder */}
+               <div className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center overflow-hidden bg-white">
+                  <span className="text-[10px] text-gray-400 font-bold text-center leading-tight">LOGO</span>
+               </div>
+               <span className="font-bold text-xl hidden sm:block text-primary tracking-tight">רבקה הולצברג</span>
+            </div>
+            <div className="hidden md:flex items-center space-x-8 space-x-reverse">
+              <a href="#about" className="text-gray-600 hover:text-primary transition font-medium">אודות</a>
+              <a href="#preview" className="text-gray-600 hover:text-primary transition font-medium">מה בספר</a>
+              <a href="#testimonials" className="text-gray-600 hover:text-primary transition font-medium">המלצות</a>
+              <a href="#faq" className="text-gray-600 hover:text-primary transition font-medium">שאלות</a>
+              <button className="btn-gold px-6 py-2 rounded-full font-bold shadow-lg shadow-gold/20">
+                לרכישה מהירה
+              </button>
+            </div>
+            <div className="md:hidden flex items-center">
+              <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-primary p-2">
+                {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        {/* Mobile Menu */}
+        {isMenuOpen && (
+          <div className="md:hidden glass-card absolute w-full border-t border-gray-100">
+            <div className="px-4 pt-2 pb-6 space-y-2">
+              <a href="#about" className="block px-3 py-2 text-gray-600 font-medium">אודות</a>
+              <a href="#preview" className="block px-3 py-2 text-gray-600 font-medium">מה בספר</a>
+              <a href="#testimonials" className="block px-3 py-2 text-gray-600 font-medium">המלצות</a>
+              <button className="w-full text-right mt-4 btn-gold px-6 py-3 rounded-full font-bold">
+                לרכישה מהירה
+              </button>
+            </div>
+          </div>
+        )}
+      </nav>
+
+      {/* Hero Section */}
+      <header className="relative pt-32 pb-16 lg:pt-48 lg:pb-32 overflow-hidden">
+        {/* Decorative Background Elements */}
+        <div className="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-l from-[#1B4D3E]/10 to-transparent -z-10 rounded-bl-[150px]" />
+        <div className="absolute top-20 left-10 w-64 h-64 rounded-full bg-[#D4AF37]/20 filter blur-[80px] -z-10" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            
+             {/* Text Side (First in RTL = Right Side) */}
+             <div className="text-center lg:text-right space-y-8 z-10">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 border border-green-100 text-primary text-sm font-bold shadow-sm backdrop-blur-sm">
+                <Leaf size={14} className="text-accent" />
+                ללא גלוטן | ללא סוכר | 100% הנאה
+              </div>
+              <h1 className="text-4xl lg:text-7xl font-black leading-tight text-primary tracking-tight">
+                סוף סוף! <br/>
+                מתכונים <span className="relative inline-block">
+                  <span className="relative z-10">שטעימים באמת</span>
+                  <svg className="absolute w-full h-3 -bottom-1 left-0 z-0 text-accent opacity-60" viewBox="0 0 100 10" preserveAspectRatio="none">
+                    <path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="3" fill="none" />
+                  </svg>
+                </span>
+              </h1>
+              <p className="text-xl text-gray-600 max-w-lg mx-auto lg:mx-0 leading-relaxed font-light">
+                במיוחד למי שרוצה לאכול בריא בלי לוותר על הטעם.
+                <br/><strong>הצטרפי למטבח הבריא והשמח שלי.</strong>
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
+                <a href="#purchase" className="btn-gold px-8 py-4 rounded-full font-bold text-lg shadow-xl shadow-gold/30 flex items-center justify-center gap-2 hover:-translate-y-1 transition-transform">
+                  👀 תראי לי איזה מתכונים יש בפנים!
+                </a>
+              </div>
+            </div>
+
+            {/* Image Side (Second in RTL = Left Side) */}
+            <div className="relative mx-auto lg:ml-0 animate-float">
+               {/* Book Mockup Placeholder */}
+              <div className="relative w-72 h-[450px] sm:w-80 sm:h-[500px] bg-gradient-to-tr from-gray-100 to-white rounded-r-xl rounded-l-md shadow-[20px_20px_60px_rgba(0,0,0,0.15)] border-l-[12px] border-primary flex items-center justify-center transform rotate-[-3deg] hover:rotate-0 transition duration-700 ease-out group overflow-hidden">
+                {/* Book Shine Effect */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/40 to-transparent z-10 opacity-0 group-hover:opacity-100 transition duration-700"></div>
+                
+                {/* Full Height Book Cover Container */}
+                <div className="w-full h-full bg-green-50 rounded-r-xl rounded-l-md flex items-center justify-center border border-green-100 p-2 overflow-hidden">
+                     {/* Simulating A4 ratio roughly */}
+                     <span className="text-primary font-bold opacity-30 text-center">[תמונת שער A4]</span>
+                </div>
+              </div>
+              
+              {/* Floating Badge */}
+              <div className="absolute -bottom-8 -right-8 w-36 h-36 bg-primary rounded-full text-white flex items-center justify-center text-center p-4 shadow-2xl border-4 border-white/50 backdrop-blur-md transform rotate-12 hover:rotate-[20deg] transition duration-300">
+                <div className="flex flex-col items-center">
+                   <span className="text-xs opacity-80 uppercase tracking-widest mb-1">מהדורה</span>
+                   <span className="font-black text-2xl leading-none">דיגיטלית</span>
+                   <span className="font-light text-2xl leading-none">+</span>
+                   <span className="font-black text-2xl leading-none">פיזית</span>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </header>
+
+      {/* Pain Points Section */}
+      <section className="py-24 relative">
+        <div className="absolute inset-0 bg-primary/5 -skew-y-3 transform origin-top-right z-[-1]"></div>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-16">את מכירה את התסכול הזה...</h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Card 1 */}
+            <div className="glass-card glass-card-hover p-10 rounded-[32px] transition duration-300 group">
+              <div className="w-20 h-20 icon-circle rounded-full flex items-center justify-center mx-auto mb-6 bg-green-50 group-hover:bg-primary transition-colors">
+                <UtensilsCrossed size={32} strokeWidth={1.5} className="text-primary group-hover:text-accent transition-colors" />
+              </div>
+              <h3 className="text-xl font-bold mb-3 text-primary">"אוכל בריא" = לא טעים</h3>
+              <p className="text-gray-600 leading-relaxed">הניסיון להיות בריאה הופך כל ארוחה לעונש של טעמים תפלים.</p>
+            </div>
+            
+            {/* Card 2 */}
+            <div className="glass-card glass-card-hover p-10 rounded-[32px] transition duration-300 group">
+              <div className="w-20 h-20 icon-circle rounded-full flex items-center justify-center mx-auto mb-6 bg-green-50 group-hover:bg-primary transition-colors">
+                <Search size={32} strokeWidth={1.5} className="text-primary group-hover:text-accent transition-colors" />
+              </div>
+              <h3 className="text-xl font-bold mb-3 text-primary">שעות של חיפושים</h3>
+              <p className="text-gray-600 leading-relaxed">גוללת באינסטגרם ובאתרים, שומרת עשרות מתכונים אבל בפועל - אין מה לבשל.</p>
+            </div>
+            
+            {/* Card 3 */}
+            <div className="glass-card glass-card-hover p-10 rounded-[32px] transition duration-300 group">
+              <div className="w-20 h-20 icon-circle rounded-full flex items-center justify-center mx-auto mb-6 bg-green-50 group-hover:bg-primary transition-colors">
+                <Trash2 size={32} strokeWidth={1.5} className="text-primary group-hover:text-accent transition-colors" />
+              </div>
+              <h3 className="text-xl font-bold mb-3 text-primary">אכזבה במטבח</h3>
+              <p className="text-gray-600 leading-relaxed">קנית רכיבים יקרים, השקעת זמן, ובסוף המתכון נזרק לפח. מתסכל.</p>
+            </div>
+          </div>
+
+          {/* Reverted & Enhanced "Hardest Part" Design with Interaction */}
+          <div className="mt-20 relative inline-block group cursor-pointer">
+             <div className="absolute inset-0 bg-accent blur-2xl opacity-20 rounded-full group-hover:opacity-40 transition-opacity duration-500"></div>
+             <div className="relative p-8 bg-white/80 backdrop-blur-md rounded-3xl border border-primary/20 shadow-lg max-w-2xl mx-auto transform transition-all duration-300 group-hover:scale-105 group-hover:shadow-2xl group-hover:border-accent/50">
+                <p className="text-2xl font-medium text-primary">
+                והכי קשה? <span className="font-light group-hover:text-primary transition-colors">לוותר על השמחה באוכל רק בשביל להיות "בריאה"...</span>
+                </p>
+             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Personal Story */}
+      <section id="about" className="py-24 relative overflow-hidden">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="glass-card rounded-[40px] p-8 md:p-14 border border-white shadow-2xl relative">
+            {/* Background Texture */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full filter blur-3xl -z-10"></div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+               <div className="order-2 md:order-1 space-y-8">
+                  <div className="space-y-2">
+                    <span className="text-accent font-bold tracking-widest text-sm uppercase">הסיפור שלי</span>
+                    <h2 className="text-3xl md:text-5xl font-bold text-primary">גם אני הייתי שם.</h2>
+                  </div>
+                  
+                  <div className="space-y-6 text-lg text-gray-700 leading-relaxed font-light">
+                    <p>
+                      פתאום באמצע החיים לא יכולתי יותר לאכול קמחים רגילים.
+                      המתכונים מהאינטרנט? פשוט לא היו טעימים.
+                    </p>
+                    <p className="font-medium text-primary text-xl border-r-4 border-accent pr-4">
+                      אז החלטתי: לא מוותרת. האוכל חייב להיות טעים.
+                    </p>
+                    <p>
+                      התחלתי לנסות, לשנות, לשפר. מתוך מאות ניסויים נולדו המתכונים האלה - אלה שעובדים. בכל פעם.
+                      ושבני המשפחה אוכלים ואומרים <span className="font-bold">"זה טעים כמו רגיל!"</span>
+                    </p>
+                  </div>
+               </div>
+               
+               <div className="order-1 md:order-2 relative">
+                 <div className="absolute inset-0 bg-accent rounded-full transform translate-x-4 translate-y-4 opacity-20 blur-md"></div>
+                 <div className="relative w-full aspect-square rounded-full overflow-hidden border-[10px] border-white shadow-2xl bg-gray-100 flex items-center justify-center">
+                    {/* Portrait Placeholder */}
+                    <span className="text-gray-400 font-medium text-center">[תמונת פרופיל<br/>יחס 1:1]</span>
+                 </div>
+                 {/* Quote Bubble */}
+                 <div className="absolute -bottom-4 -left-4 bg-white p-4 rounded-xl shadow-lg border-r-4 border-primary max-w-[180px]">
+                    <p className="text-sm font-medium text-primary">"הבריאות מתחילה במטבח שמח"</p>
+                 </div>
+               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* What's Inside - Features */}
+      <section id="preview" className="py-24 bg-primary text-white relative overflow-hidden">
+         {/* Texture Overlay */}
+         <div className="absolute inset-0 opacity-10" style={{backgroundImage: 'radial-gradient(#ffffff 1.5px, transparent 1.5px)', backgroundSize: '30px 30px'}}></div>
+         <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#1B4D3E] to-transparent z-10"></div>
+         
+         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
+            <div className="text-center mb-20">
+              <h2 className="text-3xl md:text-5xl font-bold mb-6">מה מחכה לך בפנים?</h2>
+              <p className="text-xl text-green-100/80 font-light max-w-2xl mx-auto">+ מתכוני בסיס, טיפים למטבח הבריא והמלצות שלי. הכל מוסבר צעד אחר צעד.</p>
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mb-20">
+              {features.map((feature, idx) => (
+                <div key={idx} className="bg-white/5 backdrop-blur-md p-6 rounded-2xl border border-white/10 text-center hover:bg-white/10 hover:-translate-y-2 transition duration-300 group">
+                  <div className="text-accent mb-4 flex justify-center group-hover:scale-110 transition duration-300">{feature.icon}</div>
+                  <p className="font-medium text-sm md:text-base">{feature.text}</p>
+                </div>
+              ))}
+            </div>
+
+            {/* Recipe Teaser - Dynamic Carousel */}
+            <div className="relative">
+               <div className="glass-card rounded-[32px] p-2 md:p-6 bg-white text-gray-800 max-w-5xl mx-auto shadow-2xl transition-all duration-300">
+                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                   
+                   {/* Recipe Image */}
+                   <div className="h-72 md:h-96 bg-gray-100 rounded-2xl flex items-center justify-center relative overflow-hidden group">
+                      <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition duration-500"></div>
+                      <span className="text-gray-400 font-bold text-lg text-center">{recipes[currentRecipe].imgText}</span>
+                      <div className="absolute bottom-6 left-6 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-bold text-primary shadow-lg flex items-center gap-2">
+                        <Star size={14} className="fill-accent text-accent"/> {recipes[currentRecipe].tag}
+                      </div>
+                   </div>
+
+                   {/* Recipe Text */}
+                   <div className="text-right p-6 md:pl-12">
+                      <div className="text-accent text-sm font-bold tracking-widest uppercase mb-2">הצצה למתכון</div>
+                      <h3 className="text-3xl md:text-4xl font-bold text-primary mb-4 transition-all duration-300">{recipes[currentRecipe].title}</h3>
+                      <p className="text-gray-600 mb-8 text-lg leading-relaxed min-h-[80px]">
+                        {recipes[currentRecipe].desc}
+                        <br/><br/>
+                        <span className="font-medium text-primary flex items-center gap-2">
+                           <Clock size={16} className="text-accent"/> זמן הכנה: {recipes[currentRecipe].time} | רמת קושי: {recipes[currentRecipe].difficulty}
+                        </span>
+                      </p>
+                      
+                      <div className="flex gap-4">
+                         <button onClick={nextRecipe} className="p-3 rounded-full border border-gray-200 hover:bg-primary hover:text-white hover:border-primary transition duration-300"><ChevronRight size={24} /></button>
+                         <button onClick={prevRecipe} className="p-3 rounded-full border border-gray-200 hover:bg-primary hover:text-white hover:border-primary transition duration-300"><ChevronLeft size={24} /></button>
+                      </div>
+                   </div>
+                 </div>
+               </div>
+               
+               <div className="text-center mt-12">
+                 <a href="#purchase" className="btn-gold inline-flex items-center gap-3 px-12 py-5 rounded-full font-bold text-xl shadow-xl hover:shadow-gold/40 transition-all group">
+                    <span>כן, אני רוצה את הספר</span>
+                    <ArrowLeft size={24} className="group-hover:-translate-x-1 transition-transform" />
+                 </a>
+               </div>
+            </div>
+         </div>
+      </section>
+
+      {/* Target Audience */}
+      <section className="py-24 bg-gradient-to-b from-white to-gray-50">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-primary flex justify-center items-center gap-3">
+              <Target className="text-accent w-10 h-10" />
+              הספר הזה נכתב במיוחד בשבילך אם:
+            </h2>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {[
+              "את רוצה לשמור על הבריאות בלי להסתבך במטבח",
+              "יש לך רגישות לגלוטן, סוכרת או צורך תזונתי מיוחד",
+              "את מתגעגעת לדפדף בספר פיזי במקום במסך",
+              "נמאס לך ממתכונים שנראים טוב אבל יוצאים רע",
+              "חשוב לך שהאוכל יהיה טעים באמת לכל המשפחה",
+              "את רוצה שליטה מלאה על מה שנכנס לגוף שלך"
+            ].map((item, idx) => (
+              <div key={idx} className="flex items-start gap-5 p-6 rounded-2xl bg-white border border-gray-100 hover:border-green-200 hover:shadow-lg transition duration-300 cursor-default">
+                <div className="bg-green-50 p-2 rounded-full text-primary shrink-0 mt-1">
+                  <Check size={18} strokeWidth={3} className="text-primary" />
+                </div>
+                <p className="text-lg text-gray-700 font-medium">{item}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section id="testimonials" className="py-24 bg-[#1B4D3E]/5 relative">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-16">נשים מספרות על השינוי במטבח</h2>
+          
+          <div className="relative glass-card p-12 md:p-16 rounded-[40px] shadow-2xl transition-all duration-500 min-h-[300px] flex flex-col justify-center items-center">
+             <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-accent text-white p-3 rounded-full shadow-lg">
+                <Heart className="fill-current" size={24} />
+             </div>
+             
+             {/* Shiny Stars */}
+             <div className="mb-8 flex justify-center gap-2">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="text-transparent" fill="url(#gold-gradient)" size={28} strokeWidth={0} />
+                ))}
+             </div>
+             
+             {/* User Info with Recommendation Letter Image Placeholder - Width 1000px equivalent, 5:4 ratio */}
+             <div className="flex flex-col items-center gap-4">
+                <div className="w-80 h-64 rounded-lg bg-gray-100 border-2 border-dashed border-gray-300 flex flex-col items-center justify-center p-2 transform rotate-2 hover:rotate-0 transition duration-300 shadow-sm cursor-pointer hover:border-accent">
+                   <ImageIcon size={32} className="text-gray-300 mb-2"/>
+                   <span className="text-[12px] text-gray-500 text-center leading-tight">צילום המלצה<br/>יחס 5:4<br/>(1000x800)</span>
+                </div>
+             </div>
+
+             <div className="absolute top-1/2 -translate-y-1/2 w-full left-0 px-4 flex justify-between pointer-events-none">
+               <button onClick={prevTestimonial} className="pointer-events-auto p-4 rounded-full bg-white shadow-lg hover:scale-110 transition text-primary hover:text-accent"><ChevronRight /></button>
+               <button onClick={nextTestimonial} className="pointer-events-auto p-4 rounded-full bg-white shadow-lg hover:scale-110 transition text-primary hover:text-accent"><ChevronLeft /></button>
+             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section id="faq" className="py-24">
+        <div className="max-w-3xl mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center text-primary mb-12">שאלות נפוצות</h2>
+          
+          <div className="space-y-4">
+            {[
+              {
+                q: "הספר מתאים גם למי שלא מבינה בבישול?",
+                a: "בוודאי! המתכונים נכתבו מתוך מחשבה על פשטות וקלות. כל שלב מוסבר בבהירות, והתוצאות תמיד מרשימות."
+              },
+              {
+                q: "האם המרכיבים נגישים?",
+                a: "כן. רוב המרכיבים זמינים בכל סופר. עבור המיוחדים יותר, הוספתי מדריך רכישה מפורט והמלצות לתחליפים."
+              },
+              {
+                q: "הילדים יאכלו את זה?",
+                a: "זו השאלה הכי חשובה. התשובה היא כן חד משמעי. הספר נבנה מתוך הבית שלי, והילדים הם המבקרים הכי קשוחים שלי."
+              },
+              {
+                q: "מתי אקבל את הספר?",
+                a: "הגרסה הדיגיטלית נוחתת אצלך במייל מיד לאחר הרכישה. הגרסה המודפסת יוצאת למשלוח תוך 24 שעות."
+              }
+            ].map((item, index) => (
+              <div key={index} className={`glass-card rounded-2xl overflow-hidden transition-all duration-300 ${openFaq === index ? 'border-accent shadow-md' : 'border-white'}`}>
+                <button 
+                  onClick={() => toggleFaq(index)}
+                  className="w-full p-6 text-right flex justify-between items-center hover:bg-white/50 transition"
+                >
+                  <span className={`font-bold text-lg ${openFaq === index ? 'text-primary' : 'text-gray-800'}`}>{item.q}</span>
+                  <div className={`p-2 rounded-full ${openFaq === index ? 'bg-primary text-white' : 'bg-gray-100 text-gray-500'}`}>
+                    <ChevronLeft size={20} className={`transform transition-transform duration-300 ${openFaq === index ? '-rotate-90' : ''}`} />
+                  </div>
+                </button>
+                <div className={`px-6 text-gray-600 bg-white/40 transition-all duration-300 overflow-hidden ${openFaq === index ? 'max-h-40 py-6 opacity-100' : 'max-h-0 py-0 opacity-0'}`}>
+                  {item.a}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing / Final CTA */}
+      <section id="purchase" className="py-24 bg-primary relative overflow-hidden text-center">
+         <div className="absolute inset-0 bg-pattern opacity-10"></div>
+         <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-accent to-transparent opacity-50"></div>
+         
+         <div className="max-w-4xl mx-auto px-4 relative z-10">
+            <h2 className="text-3xl md:text-6xl font-black text-white mb-8 tracking-tight">הזמן שלך לבשל באהבה<br/>מתחיל כאן.</h2>
+            
+            <div className="bg-white rounded-[40px] p-8 md:p-14 shadow-2xl max-w-lg mx-auto transform hover:scale-105 transition duration-500 relative border-8 border-white/20 bg-clip-padding">
+               
+               {/* Popular Badge with Gold Shine */}
+               <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 gold-badge-shine text-white px-8 py-3 rounded-full font-bold shadow-xl text-lg uppercase tracking-wider whitespace-nowrap border-2 border-white/30 z-20">
+                  מחיר השקה מיוחד
+               </div>
+
+               <h3 className="text-2xl font-bold text-primary mb-2 mt-4">המטבח הבריא שלי</h3>
+               <p className="text-gray-500 mb-8 font-medium">מהדורה מודפסת יוקרתית + עותק דיגיטלי</p>
+               
+               <div className="flex flex-col items-center justify-center mb-6">
+                 <span className="text-2xl text-gray-400 line-through decoration-red-400 decoration-2 mb-1">₪129</span>
+                 <div className="flex items-start gap-1">
+                    <span className="text-3xl font-bold text-primary mt-2">₪</span>
+                    <span className="text-7xl font-black text-primary leading-none">99</span>
+                 </div>
+               </div>
+               
+               {/* Updated Bonus Text */}
+               <div className="mb-8 flex justify-center">
+                  <div className="bg-green-50 px-4 py-2 rounded-full flex items-center gap-2 text-primary font-medium text-sm">
+                     <Gift size={16} className="text-accent" /> כולל גישה מיידית לגרסה הדיגיטלית
+                  </div>
+               </div>
+               
+               <button className="w-full btn-gold py-5 rounded-full font-bold text-xl shadow-xl shadow-gold/30 mb-6 flex justify-center items-center gap-3 group">
+                 <span>כן, אני רוצה את הספר!</span>
+                 <ArrowLeft className="group-hover:-translate-x-1 transition-transform"/>
+               </button>
+               
+               <div className="flex justify-center gap-6 text-xs text-gray-400 font-medium uppercase tracking-wide">
+                 <span className="flex items-center gap-1"><Check size={14} className="text-green-500"/> תשלום מאובטח</span>
+                 <span className="flex items-center gap-1"><Check size={14} className="text-green-500"/> משלוח מהיר</span>
+               </div>
+            </div>
+         </div>
+      </section>
+
+      {/* Footer / Short Bio */}
+      <footer className="bg-[#153e32] text-white py-20 text-center border-t border-white/5">
+        <div className="max-w-3xl mx-auto px-4 space-y-8">
+           {/* Logo in Footer */}
+           <div className="w-24 h-24 bg-white rounded-full mx-auto flex items-center justify-center border-4 border-white/10 overflow-hidden relative shadow-lg">
+               {/* Logo Placeholder - Matches Nav Style but Larger */}
+              <span className="text-primary font-bold text-sm">LOGO</span>
+           </div>
+           
+           <div>
+             <h3 className="text-xl font-bold mb-4 text-accent">רבקה הולצברג</h3>
+             <p className="text-gray-400 leading-relaxed max-w-lg mx-auto">
+               מלווה נשים בדרך לשינוי אמיתי דרך תזונה טבעית.
+               מאמינה שבריאות מתחילה במטבח שמח, פשוט וטעים.
+             </p>
+           </div>
+           
+           <div className="pt-8">
+             <div className="flex justify-center gap-6 mb-8">
+                <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-accent hover:text-white transition duration-300"><Instagram size={20}/></a>
+                <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-accent hover:text-white transition duration-300"><Facebook size={20}/></a>
+                <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-accent hover:text-white transition duration-300"><Mail size={20}/></a>
+             </div>
+             <p className="text-xs text-gray-600">
+               © 2025 כל הזכויות שמורות לרבקה הולצברג | נבנה באהבה
+             </p>
+           </div>
+        </div>
+      </footer>
+    </div>
+  );
+};
+
+export default LandingPage;
