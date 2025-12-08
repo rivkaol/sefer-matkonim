@@ -28,7 +28,7 @@
     <script type="text/babel">
         const { useState } = React;
 
-        // --- הגדרת אייקונים (במקום ייבוא חיצוני) ---
+        // --- הגדרת אייקונים ---
         const IconWrapper = ({ children, className, ...props }) => (
             <svg 
                 xmlns="http://www.w3.org/2000/svg" 
@@ -93,7 +93,7 @@
             { icon: <BookOpen className="w-6 h-6 text-accent" />, text: "15 מתכוני חגים" },
           ];
 
-          // המלצות (תמונות בלבד + דירוג)
+          // המלצות
           const testimonials = [
             { id: 1, image: "hamlza1.png" },
             { id: 2, image: "hamlza2.png" },
@@ -152,7 +152,6 @@
           return (
             <div dir="rtl" className="min-h-screen font-sans overflow-x-hidden" style={{ backgroundColor: colors.bg, color: colors.text, fontFamily: "'Rubik', sans-serif" }}>
               
-              {/* Gold Gradient Definition */}
               <svg width="0" height="0" className="absolute">
                 <linearGradient id="gold-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
                   <stop stopColor="#F9E79F" offset="0%" />
@@ -255,7 +254,6 @@
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                   <div className="flex justify-between items-center h-20">
                     <div className="flex-shrink-0 flex items-center gap-3">
-                       {/* Logo Image */}
                        <div className="h-16 w-auto flex items-center justify-center">
                           <img src="logo.jpg.png" alt="לוגו רבקה הולצברג" className="h-full w-auto object-contain" />
                        </div>
@@ -380,7 +378,6 @@
                     </div>
                   </div>
 
-                  {/* Hardest Part Design - אינטראקטיביות בהובר */}
                   <div className="mt-20 relative inline-block group cursor-pointer">
                      <div className="absolute inset-0 bg-accent blur-2xl opacity-20 rounded-full group-hover:opacity-40 transition-opacity duration-500"></div>
                      <div className="relative p-8 bg-white/80 backdrop-blur-md rounded-3xl border border-primary/20 shadow-lg max-w-2xl mx-auto transform transition-all duration-300 group-hover:scale-105 group-hover:shadow-2xl group-hover:border-accent/50">
@@ -535,36 +532,49 @@
 
               {/* Testimonials */}
               <section id="testimonials" className="py-24 bg-[#1B4D3E]/5 relative">
-                <div className="max-w-4xl mx-auto px-4 text-center">
+                <div className="max-w-6xl mx-auto px-4 text-center">
                   <h2 className="text-3xl md:text-4xl font-bold text-primary mb-16">נשים מספרות על השינוי במטבח</h2>
                   
-                  <div className="relative glass-card p-12 md:p-16 rounded-[40px] shadow-2xl transition-all duration-500 min-h-[300px] flex flex-col justify-center items-center">
-                     <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-accent text-white p-3 rounded-full shadow-lg">
-                        <Heart className="fill-current" size={24} />
-                     </div>
-                     
-                     {/* Shiny Stars */}
-                     <div className="mb-8 flex justify-center gap-2">
-                        {[...Array(5)].map((_, i) => (
-                          <Star key={i} className="text-transparent" fill="url(#gold-gradient)" size={28} strokeWidth={0} />
-                        ))}
-                     </div>
-                     
-                     {/* Recommendation Image */}
-                     <div className="flex flex-col items-center gap-4">
-                        <div className="w-80 h-auto rounded-lg bg-gray-100 border-2 border-dashed border-gray-300 flex flex-col items-center justify-center p-2 transform rotate-2 hover:rotate-0 transition duration-300 shadow-sm hover:border-accent overflow-hidden">
-                           <img 
-                            src={testimonials[currentTestimonial].image} 
-                            alt="המלצה"
-                            className="w-full h-auto object-contain"
-                           />
-                        </div>
-                     </div>
+                  <div className="flex flex-col md:flex-row items-center justify-center gap-8">
+                      {/* Desktop Navigation: Prev (Right in RTL) */}
+                      <button onClick={prevTestimonial} className="hidden md:block p-4 rounded-full bg-white shadow-lg hover:scale-110 transition text-primary hover:text-accent z-10">
+                        <ChevronRight size={32} />
+                      </button>
+                      
+                      <div className="relative glass-card p-8 md:p-12 rounded-[40px] shadow-2xl transition-all duration-500 min-h-[300px] flex flex-col justify-center items-center w-full max-w-2xl">
+                         <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-accent text-white p-3 rounded-full shadow-lg">
+                            <Heart className="fill-current" size={24} />
+                         </div>
+                         
+                         {/* Shiny Stars */}
+                         <div className="mb-6 flex justify-center gap-2 mt-2">
+                            {[...Array(5)].map((_, i) => (
+                              <Star key={i} className="text-transparent" fill="url(#gold-gradient)" size={28} strokeWidth={0} />
+                            ))}
+                         </div>
+                         
+                         {/* Recommendation Image */}
+                         <div className="flex flex-col items-center gap-4 w-full">
+                            <div className="w-full max-w-md h-auto rounded-lg bg-gray-100 border-2 border-dashed border-gray-300 flex flex-col items-center justify-center p-2 transform rotate-1 hover:rotate-0 transition duration-300 shadow-sm hover:border-accent overflow-hidden">
+                               <img 
+                                src={testimonials[currentTestimonial].image} 
+                                alt="המלצה"
+                                className="w-full h-auto object-contain max-h-[500px]"
+                               />
+                            </div>
+                         </div>
+                      </div>
 
-                     <div className="absolute top-1/2 -translate-y-1/2 w-full left-0 px-4 flex justify-between pointer-events-none">
-                       <button onClick={prevTestimonial} className="pointer-events-auto p-4 rounded-full bg-white shadow-lg hover:scale-110 transition text-primary hover:text-accent"><ChevronRight /></button>
-                       <button onClick={nextTestimonial} className="pointer-events-auto p-4 rounded-full bg-white shadow-lg hover:scale-110 transition text-primary hover:text-accent"><ChevronLeft /></button>
-                     </div>
+                      {/* Desktop Navigation: Next (Left in RTL) */}
+                      <button onClick={nextTestimonial} className="hidden md:block p-4 rounded-full bg-white shadow-lg hover:scale-110 transition text-primary hover:text-accent z-10">
+                        <ChevronLeft size={32} />
+                      </button>
+                  </div>
+
+                  {/* Mobile Navigation (Below) */}
+                  <div className="flex justify-center gap-6 mt-8 md:hidden">
+                     <button onClick={prevTestimonial} className="p-4 rounded-full bg-white shadow-lg text-primary hover:text-accent"><ChevronRight size={24} /></button>
+                     <button onClick={nextTestimonial} className="p-4 rounded-full bg-white shadow-lg text-primary hover:text-accent"><ChevronLeft size={24} /></button>
                   </div>
                 </div>
               </section>
