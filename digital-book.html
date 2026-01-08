@@ -124,13 +124,24 @@
         const BookOpen = (p) => <IconWrapper {...p}><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></IconWrapper>;
         const Smile = (p) => <IconWrapper {...p}><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" x2="9.01" y1="9" y2="9"/><line x1="15" x2="15.01" y1="9" y2="9"/></IconWrapper>;
         const Target = (p) => <IconWrapper {...p}><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></IconWrapper>;
+        const Smartphone = (p) => <IconWrapper {...p}><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></IconWrapper>;
         const Zap = (p) => <IconWrapper {...p}><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></IconWrapper>;
         const ChevronLeft = (p) => <IconWrapper {...p}><path d="m15 18-6-6 6-6"/></IconWrapper>;
         const ChevronRight = (p) => <IconWrapper {...p}><path d="m9 18 6-6-6-6"/></IconWrapper>;
         const ArrowLeft = (p) => <IconWrapper {...p}><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></IconWrapper>;
+        const UtensilsCrossed = (p) => <IconWrapper {...p}><path d="m16 2-2.3 2.3a3 3 0 0 0 0 4.2l1.8 1.8a3 3 0 0 0 4.2 0L22 8"/><path d="M15 15 3.3 3.3"/><path d="m2.8 21.2 7.1-7.1"/><path d="m18.5 5.6.9.9"/><path d="m12.7 11.3-1.4 1.4"/></IconWrapper>;
+        const Search = (p) => <IconWrapper {...p}><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></IconWrapper>;
+        const Trash2 = (p) => <IconWrapper {...p}><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><line x1="10" x2="10" y1="11" y2="17"/><line x1="14" x2="14" y1="11" y2="17"/></IconWrapper>;
 
         const DigitalOfferPage = () => {
             const purchaseLink = "https://private.invoice4u.co.il/newsite/he/clearing/public/i4u-clearing?ProductGuid=bc28c638-dfc3-4736-8ed9-4e14240393d7";
+
+            const colors = {
+                primary: '#1B4D3E',
+                accent: '#D4AF37',
+                bg: '#F8F9FA',
+                text: '#333333',
+            };
 
             const features = [
                 { icon: <ChefHat className="w-6 h-6 text-[#D4AF37]" />, text: "12 מאפים מלוחים" },
@@ -162,6 +173,14 @@
                             <stop stopColor="#B7950B" offset="100%" />
                         </linearGradient>
                     </svg>
+                    
+                    <style>
+                        {`
+                          .text-primary { color: ${colors.primary}; }
+                          .bg-primary { background-color: ${colors.primary}; }
+                          .text-accent { color: ${colors.accent}; }
+                        `}
+                    </style>
 
                     {/* Header Logo */}
                     <div className="absolute top-0 w-full z-50 pt-6 pb-4 flex justify-center">
@@ -198,7 +217,7 @@
                                     </div>
                                 </div>
 
-                                {/* Corrected Proportional Phone Mockup */}
+                                {/* Proportional Phone Mockup */}
                                 <div className="relative mx-auto lg:ml-0 animate-float">
                                     <div className="phone-container">
                                         <div className="phone-notch"></div>
@@ -208,7 +227,6 @@
                                         </div>
                                     </div>
                                     
-                                    {/* Readable High-Contrast Badge */}
                                     <div className="absolute -bottom-6 -right-6 md:-right-10 w-32 h-32 bg-[#1B4D3E] rounded-full text-white flex items-center justify-center text-center p-2 shadow-2xl border-4 border-[#D4AF37] z-20">
                                         <div className="flex flex-col items-center leading-tight">
                                             <span className="font-bold text-lg text-white">גישה</span>
@@ -251,7 +269,7 @@
                         </div>
                     </section>
 
-                    {/* What's Inside - High Contrast Version */}
+                    {/* What's Inside */}
                     <section id="preview" className="py-20 bg-[#1B4D3E] text-white relative">
                         <div className="max-w-7xl mx-auto px-4 text-center">
                             <h2 className="text-3xl md:text-5xl font-bold mb-12 text-white">מה מחכה לך בפנים?</h2>
@@ -302,9 +320,15 @@
                             <h2 className="text-2xl md:text-3xl font-bold mb-16 text-[#1B4D3E]">
                                 <MessageCircle className="text-[#D4AF37] inline ml-2" /> מה אומרות נשים שכבר אופות מהספר?
                             </h2>
-                            <div className="flex flex-col md:flex-row items-center justify-center gap-8">
-                                <button onClick={prevTestimonial} className="hidden md:block p-4 rounded-full bg-white shadow-md text-[#1B4D3E] hover:text-[#D4AF37] transition"><ChevronRight size={32}/></button>
-                                <div className="relative glass-card p-8 md:p-12 rounded-[40px] shadow-xl w-full max-w-4xl flex flex-col items-center border border-white">
+                            
+                            <div className="relative w-full max-w-4xl mx-auto">
+                                {/* Navigation Overlay */}
+                                <div className="absolute top-1/2 -translate-y-1/2 w-full left-0 px-2 md:px-0 flex justify-between z-20 pointer-events-none">
+                                     <button onClick={prevTestimonial} className="pointer-events-auto p-3 md:p-4 rounded-full bg-white shadow-lg text-[#1B4D3E] hover:text-[#D4AF37] transition -ml-4 md:-ml-16"><ChevronRight size={24} className="md:w-8 md:h-8" /></button>
+                                     <button onClick={nextTestimonial} className="pointer-events-auto p-3 md:p-4 rounded-full bg-white shadow-lg text-[#1B4D3E] hover:text-[#D4AF37] transition -mr-4 md:-mr-16"><ChevronLeft size={24} className="md:w-8 md:h-8" /></button>
+                                </div>
+
+                                <div className="relative glass-card p-8 md:p-12 rounded-[40px] shadow-xl flex flex-col items-center border border-white z-10">
                                     <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-[#D4AF37] text-white p-3 rounded-full shadow-lg"><Heart className="fill-current text-white" size={24} /></div>
                                     <div className="mb-6 flex justify-center gap-2">
                                         {[...Array(5)].map((_, i) => <Star key={i} className="text-transparent" fill="url(#gold-gradient)" size={24} strokeWidth={0} />)}
@@ -313,8 +337,8 @@
                                         <img src={testimonials[currentTestimonial].image} alt="המלצה" className="w-full h-auto object-contain max-h-[500px]" />
                                     </div>
                                 </div>
-                                <button onClick={nextTestimonial} className="hidden md:block p-4 rounded-full bg-white shadow-md text-[#1B4D3E] hover:text-[#D4AF37] transition"><ChevronLeft size={32}/></button>
                             </div>
+
                         </div>
                     </section>
 
@@ -366,7 +390,7 @@
 
         const root = ReactDOM.createRoot(document.getElementById('root'));
         root.render(<DigitalOfferPage />);
-    </script
+    </script>
 <script src="https://rivkaol.github.io/legal-footer.js"></script>
 </body>
 </html>
