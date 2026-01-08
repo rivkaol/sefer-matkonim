@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>הגרסה הדיגיטלית - רבקה הולצברג</title>
+    <title>המתכונים של רבקה - תמיד איתך בכיס</title>
     
     <!-- React & ReactDOM -->
     <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
@@ -22,10 +22,10 @@
         body { font-family: 'Rubik', sans-serif; scroll-behavior: smooth; }
         
         .glass-card {
-            background: rgba(255, 255, 255, 0.90);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 10px 40px -10px rgba(27, 77, 62, 0.15);
         }
         
         .btn-gold {
@@ -45,13 +45,53 @@
             box-shadow: 0 10px 20px rgba(212, 175, 55, 0.4);
         }
 
+        /* Proportional Phone Mockup - Fixed to A4 Interior */
+        .phone-container {
+            width: 180px; /* Half screen width approx on mobile */
+            height: auto;
+            background: #111;
+            border: 8px solid #222;
+            border-radius: 35px;
+            position: relative;
+            box-shadow: 0 30px 60px -15px rgba(0,0,0,0.4);
+            margin: 0 auto;
+        }
+        @media (min-width: 768px) {
+            .phone-container {
+                width: 240px; /* Standard size for desktop */
+            }
+        }
+        .phone-notch {
+            width: 40%;
+            height: 18px;
+            background: #222;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 12px;
+            z-index: 10;
+        }
+        .phone-screen {
+            width: 100%;
+            aspect-ratio: 1 / 1.414; /* Exact A4 Proportion */
+            background: #f0f0f0;
+            border-radius: 28px;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
         @keyframes float {
-            0% { transform: translateY(0px) rotate(-3deg); }
-            50% { transform: translateY(-10px) rotate(-1deg); }
-            100% { transform: translateY(0px) rotate(-3deg); }
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(1deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
         }
         .animate-float {
-            animation: float 6s ease-in-out infinite;
+            animation: float 5s ease-in-out infinite;
         }
 
         .gold-badge-shine {
@@ -71,47 +111,34 @@
     <script type="text/babel">
         const { useState } = React;
 
-        // --- אייקונים ---
         const IconWrapper = ({ children, className, ...props }) => (
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} {...props}>{children}</svg>
         );
 
-        const ChevronLeft = (p) => <IconWrapper {...p}><path d="m15 18-6-6 6-6"/></IconWrapper>;
-        const ChevronRight = (p) => <IconWrapper {...p}><path d="m9 18 6-6-6-6"/></IconWrapper>;
-        const Star = (p) => <IconWrapper {...p}><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></IconWrapper>;
-        const Check = (p) => <IconWrapper {...p}><path d="M20 6 9 17l-5-5"/></IconWrapper>;
-        const Heart = (p) => <IconWrapper {...p}><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></IconWrapper>;
-        const Leaf = (p) => <IconWrapper {...p}><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></IconWrapper>;
         const MessageCircle = (p) => <IconWrapper {...p}><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></IconWrapper>;
-        const ArrowLeft = (p) => <IconWrapper {...p}><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></IconWrapper>;
+        const Check = (p) => <IconWrapper {...p}><polyline points="20 6 9 17 4 12"/></IconWrapper>;
+        const Star = (p) => <IconWrapper {...p}><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></IconWrapper>;
+        const Heart = (p) => <IconWrapper {...p}><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></IconWrapper>;
         const ChefHat = (p) => <IconWrapper {...p}><path d="M6 13.87A4 4 0 0 1 7.41 6a5.11 5.11 0 0 1 1.05-1.54 5 5 0 0 1 7.08 0A5.11 5.11 0 0 1 16.59 6 4 4 0 0 1 18 13.87V21H6Z"/><line x1="6" x2="18" y1="17" y2="17"/></IconWrapper>;
+        const Leaf = (p) => <IconWrapper {...p}><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></IconWrapper>;
         const BookOpen = (p) => <IconWrapper {...p}><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></IconWrapper>;
         const Smile = (p) => <IconWrapper {...p}><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" x2="9.01" y1="9" y2="9"/><line x1="15" x2="15.01" y1="9" y2="9"/></IconWrapper>;
-        const UtensilsCrossed = (p) => <IconWrapper {...p}><path d="m16 2-2.3 2.3a3 3 0 0 0 0 4.2l1.8 1.8a3 3 0 0 0 4.2 0L22 8"/><path d="M15 15 3.3 3.3"/><path d="m2.8 21.2 7.1-7.1"/><path d="m18.5 5.6.9.9"/><path d="m12.7 11.3-1.4 1.4"/></IconWrapper>;
-        const Trash2 = (p) => <IconWrapper {...p}><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><line x1="10" x2="10" y1="11" y2="17"/><line x1="14" x2="14" y1="11" y2="17"/></IconWrapper>;
-        const Search = (p) => <IconWrapper {...p}><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></IconWrapper>;
         const Target = (p) => <IconWrapper {...p}><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></IconWrapper>;
-        const Smartphone = (p) => <IconWrapper {...p}><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></IconWrapper>;
         const Zap = (p) => <IconWrapper {...p}><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></IconWrapper>;
+        const ChevronLeft = (p) => <IconWrapper {...p}><path d="m15 18-6-6 6-6"/></IconWrapper>;
+        const ChevronRight = (p) => <IconWrapper {...p}><path d="m9 18 6-6-6-6"/></IconWrapper>;
+        const ArrowLeft = (p) => <IconWrapper {...p}><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></IconWrapper>;
 
         const DigitalOfferPage = () => {
-            // הקישור המעודכן לתשלום
             const purchaseLink = "https://private.invoice4u.co.il/newsite/he/clearing/public/i4u-clearing?ProductGuid=bc28c638-dfc3-4736-8ed9-4e14240393d7";
 
-            const colors = {
-                primary: '#1B4D3E',
-                accent: '#D4AF37',
-                bg: '#F8F9FA',
-                text: '#333333',
-            };
-
             const features = [
-                { icon: <ChefHat className="w-6 h-6 text-accent" />, text: "12 מאפים מלוחים" },
-                { icon: <Leaf className="w-6 h-6 text-accent" />, text: "11 מנות עיקריות" },
-                { icon: <Heart className="w-6 h-6 text-accent" />, text: "10 מתכונים עם טופו" },
-                { icon: <Star className="w-6 h-6 text-accent" />, text: "19 עוגות בריאות" },
-                { icon: <Smile className="w-6 h-6 text-accent" />, text: "15 נשנושים מתוקים" },
-                { icon: <BookOpen className="w-6 h-6 text-accent" />, text: "15 מתכוני חגים" },
+                { icon: <ChefHat className="w-6 h-6 text-[#D4AF37]" />, text: "12 מאפים מלוחים" },
+                { icon: <Leaf className="w-6 h-6 text-[#D4AF37]" />, text: "11 מנות עיקריות" },
+                { icon: <Heart className="w-6 h-6 text-[#D4AF37]" />, text: "10 מתכונים עם טופו" },
+                { icon: <Star className="w-6 h-6 text-[#D4AF37]" />, text: "19 עוגות בריאות" },
+                { icon: <Smile className="w-6 h-6 text-[#D4AF37]" />, text: "15 נשנושים מתוקים" },
+                { icon: <BookOpen className="w-6 h-6 text-[#D4AF37]" />, text: "15 מתכוני חגים" },
             ];
 
             const testimonials = [
@@ -122,18 +149,12 @@
 
             const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
-            const nextTestimonial = () => {
-                setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
-            };
-
-            const prevTestimonial = () => {
-                setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-            };
+            const nextTestimonial = () => setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+            const prevTestimonial = () => setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
 
             return (
-                <div dir="rtl" className="min-h-screen font-sans overflow-x-hidden" style={{ backgroundColor: colors.bg, color: colors.text, fontFamily: "'Rubik', sans-serif" }}>
+                <div dir="rtl" className="min-h-screen font-sans overflow-x-hidden" style={{ backgroundColor: '#F8F9FA', color: '#333333', fontFamily: "'Rubik', sans-serif" }}>
                     
-                    {/* Gold Gradient Definition */}
                     <svg width="0" height="0" className="absolute">
                         <linearGradient id="gold-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
                             <stop stopColor="#F9E79F" offset="0%" />
@@ -142,7 +163,7 @@
                         </linearGradient>
                     </svg>
 
-                    {/* Header */}
+                    {/* Header Logo */}
                     <div className="absolute top-0 w-full z-50 pt-6 pb-4 flex justify-center">
                         <div className="h-20 w-auto">
                             <img src="logo.jpg.png" alt="לוגו" className="h-full w-auto object-contain" />
@@ -157,44 +178,42 @@
                         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                                 
-                                <div className="text-center lg:text-right space-y-8 z-10">
-                                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 border border-green-100 text-primary text-sm font-bold shadow-sm backdrop-blur-sm">
+                                <div className="text-center lg:text-right space-y-6 z-10">
+                                    <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-white border border-green-100 text-[#1B4D3E] text-sm font-bold shadow-sm backdrop-blur-sm">
                                         ללא גלוטן | ללא סוכר | 100% הנאה
                                     </div>
-                                    <h1 className="text-4xl lg:text-7xl font-black leading-tight text-primary tracking-tight">
-                                        הספר הבריא <br/>
-                                        אצלך <span className="relative inline-block">
-                                            <span className="relative z-10 text-[#D4AF37]">תוך דקה</span>
-                                            <svg className="absolute w-full h-3 -bottom-1 left-0 z-0 text-accent opacity-60" viewBox="0 0 100 10" preserveAspectRatio="none">
-                                                <path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="3" fill="none" />
-                                            </svg>
-                                        </span>
+                                    <h1 className="text-4xl lg:text-7xl font-black leading-tight text-[#1B4D3E] tracking-tight">
+                                        המתכונים שלי <br/>
+                                        <span className="text-[#D4AF37]">תמיד איתך בכיס</span>
                                     </h1>
-                                    <p className="text-xl text-gray-600 max-w-lg mx-auto lg:mx-0 leading-relaxed font-light">
-                                        למי שרוצה את המתכונים הבריאים זמינים בכל מקום ובכל זמן - ישר מהנייד או מהמחשב.
-                                        <br/><strong>הורדה מיידית למייל לאחר הרכישה.</strong>
+                                    <p className="text-xl text-gray-700 max-w-lg mx-auto lg:mx-0 leading-relaxed font-light">
+                                        למי שרוצה את המטבח הבריא זמין בכל רגע: <br/>
+                                        <strong>בנייד או במחשב.</strong>
+                                        <br/><span className="text-sm opacity-80 italic">הורדה מיידית למייל | בלי דמי משלוח</span>
                                     </p>
-                                    <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4 mb-20 lg:mb-0">
+                                    <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4 mb-24 lg:mb-0">
                                         <a href="#preview" className="btn-gold px-12 py-4 rounded-full font-bold text-lg shadow-xl shadow-gold/30 flex items-center justify-center gap-2 hover:-translate-y-1 transition-transform">
-                                            👀 תראי לי איזה מתכונים יש בפנים
+                                            👀 תראי לי מה מחכה לך בפנים
                                         </a>
                                     </div>
                                 </div>
 
-                                <div className="relative mx-auto lg:ml-0 animate-float flex flex-col items-center">
-                                    <div className="relative max-w-[320px] sm:max-w-[400px] w-full transform transition duration-700 ease-out group">
-                                        <div className="absolute inset-0 bg-black opacity-10 blur-2xl rounded-full transform translate-y-4 scale-95 pointer-events-none"></div>
-                                        <div className="relative rounded-xl overflow-hidden shadow-2xl bg-white flex items-center justify-center border-4 border-white">
-                                            <img src="daf shaar.jpg" alt="כריכת הספר" className="w-full h-auto block" />
-                                            <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent z-10 opacity-0 group-hover:opacity-100 transition duration-700 pointer-events-none"></div>
+                                {/* Corrected Proportional Phone Mockup */}
+                                <div className="relative mx-auto lg:ml-0 animate-float">
+                                    <div className="phone-container">
+                                        <div className="phone-notch"></div>
+                                        <div className="phone-screen">
+                                            <img src="daf shaar.jpg" alt="כריכת הספר" className="w-full h-full object-cover" />
+                                            <div className="absolute inset-0 bg-gradient-to-tr from-white/10 to-transparent pointer-events-none"></div>
                                         </div>
                                     </div>
                                     
-                                    <div className="absolute -bottom-8 -right-8 w-40 h-40 bg-primary rounded-full text-white flex items-center justify-center text-center p-2 shadow-2xl border-4 border-white/50 backdrop-blur-md transform rotate-12 hover:rotate-[20deg] transition duration-300">
+                                    {/* Readable High-Contrast Badge */}
+                                    <div className="absolute -bottom-6 -right-6 md:-right-10 w-32 h-32 bg-[#1B4D3E] rounded-full text-white flex items-center justify-center text-center p-2 shadow-2xl border-4 border-[#D4AF37] z-20">
                                         <div className="flex flex-col items-center leading-tight">
-                                            <span className="font-bold text-lg tracking-tight leading-none">גרסה</span>
-                                            <span className="font-bold text-lg tracking-tight">דיגיטלית</span>
-                                            <span className="font-bold text-sm mt-1 text-[#D4AF37] animate-pulse">במחיר השקה</span>
+                                            <span className="font-bold text-lg text-white">גישה</span>
+                                            <span className="font-bold text-lg text-white">מיידית</span>
+                                            <span className="font-bold text-sm mt-1 text-[#D4AF37]">49₪ בלבד</span>
                                         </div>
                                     </div>
                                 </div>
@@ -203,50 +222,28 @@
                         </div>
                     </header>
 
-                    {/* Pain Points */}
-                    <section className="py-20 relative">
-                        <div className="max-w-6xl mx-auto px-4 text-center relative z-10">
-                            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-12">את מכירה את התסכול הזה...</h2>
-                            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                                <div className="glass-card p-10 rounded-[32px] border border-transparent hover:border-[#D4AF37] transition duration-300 transform hover:scale-105 group">
-                                    <div className="w-20 h-20 mx-auto mb-6 bg-green-50 rounded-full flex items-center justify-center text-primary">
-                                        <UtensilsCrossed size={32} />
-                                    </div>
-                                    <h3 className="text-xl font-bold mb-3 text-primary">"אוכל בריא" = לא טעים</h3>
-                                    <p className="text-gray-600 leading-relaxed">הניסיון להיות בריאה הופך כל ארוחה לעונש של טעמים תפלים.</p>
-                                </div>
-                                <div className="glass-card p-10 rounded-[32px] border border-transparent hover:border-[#D4AF37] transition duration-300 transform hover:scale-105 group">
-                                    <div className="w-20 h-20 mx-auto mb-6 bg-green-50 rounded-full flex items-center justify-center text-primary">
-                                        <Search size={32} />
-                                    </div>
-                                    <h3 className="text-xl font-bold mb-3 text-primary">שעות של חיפושים</h3>
-                                    <p className="text-gray-600 leading-relaxed">גוללת באינסטגרם ובאתרים, שומרת עשרות מתכונים אבל בפועל - אין מה לבשל.</p>
-                                </div>
-                                <div className="glass-card p-10 rounded-[32px] border border-transparent hover:border-[#D4AF37] transition duration-300 transform hover:scale-105 group">
-                                    <div className="w-20 h-20 mx-auto mb-6 bg-green-50 rounded-full flex items-center justify-center text-primary">
-                                        <Trash2 size={32} />
-                                    </div>
-                                    <h3 className="text-xl font-bold mb-3 text-primary">אכזבה במטבח</h3>
-                                    <p className="text-gray-600 leading-relaxed">קנית רכיבים יקרים, השקעת זמן, ובסוף המתכון נזרק לפח. מתסכל.</p>
-                                </div>
-                            </div>
+                    {/* Transition Sentence */}
+                    <section className="py-16 bg-white/60">
+                        <div className="max-w-3xl mx-auto px-6 text-center">
+                            <p className="text-xl md:text-2xl text-[#1B4D3E] font-medium leading-relaxed">
+                                קיבלתי מכן המון בקשות לגרסה של הספר <span className="font-black">רק בדיגיטלי</span>. <br/>
+                                <span className="text-gray-700">החלטתי להוציא את המהדורה הזו כדי שהידע יהיה נגיש לכל אחת ובכל רגע, בנוחות מקסימלית ישר מהנייד.</span>
+                            </p>
                         </div>
                     </section>
 
-                    {/* Story */}
-                    <section className="py-20 relative">
-                        <div className="max-w-5xl mx-auto px-4">
-                            <div className="glass-card rounded-[40px] p-8 md:p-14 border border-white shadow-xl flex flex-col md:flex-row items-center gap-12">
-                                <div className="md:w-1/2 order-2 md:order-1">
-                                    <h2 className="text-3xl font-bold text-primary mb-6">גם אני הייתי שם.</h2>
-                                    <div className="text-lg text-gray-700 leading-relaxed space-y-4">
-                                        <p>פתאום באמצע החיים לא יכולתי יותר לאכול קמחים רגילים. המתכונים מהאינטרנט? פשוט לא היו טעימים.</p>
-                                        <p className="font-medium text-primary text-xl border-r-4 border-[#D4AF37] pr-4">אז החלטתי: לא מוותרת. האוכל חייב להיות טעים.</p>
-                                        <p>התחלתי לנסות, לשנות, לשפר. מתוך מאות ניסויים נולדו המתכונים האלה - אלה שעובדים. בכל פעם.</p>
-                                    </div>
+                    {/* Shortened Story */}
+                    <section className="py-16 relative overflow-hidden">
+                        <div className="max-w-4xl mx-auto px-4">
+                            <div className="glass-card rounded-[40px] p-8 md:p-12 border border-white flex flex-col md:flex-row items-center gap-10">
+                                <div className="md:w-2/3 order-2 md:order-1 text-center md:text-right">
+                                    <h2 className="text-2xl font-bold text-[#1B4D3E] mb-4">למה היה לי חשוב להנגיש לך את הידע הזה?</h2>
+                                    <p className="text-lg text-gray-700 leading-relaxed font-light">
+                                        אחרי מאות ניסויים במטבח הפרטי שלי, מצאתי את הנוסחאות שעובדות – אלה שגורמות למשפחה להגיד "זה טעים כמו רגיל!". אני רוצה שהידע הזה יהיה זמין לכל אחת מכן, בכל רגע, כדי שתוכלו לבחור בבריאות בלי מאמץ ובלי לחכות.
+                                    </p>
                                 </div>
-                                <div className="md:w-1/2 order-1 md:order-2">
-                                    <div className="relative w-full max-w-[300px] aspect-square mx-auto rounded-full overflow-hidden border-[8px] border-white shadow-lg bg-gray-100">
+                                <div className="md:w-1/3 order-1 md:order-2">
+                                    <div className="w-44 aspect-square mx-auto rounded-full overflow-hidden border-[6px] border-white shadow-xl bg-gray-200">
                                         <img src="profile.jpg.jpg" alt="רבקה הולצברג" className="w-full h-full object-cover" />
                                     </div>
                                 </div>
@@ -254,107 +251,103 @@
                         </div>
                     </section>
 
-                    {/* Features Counts */}
-                    <section className="py-20 bg-[#1B4D3E] text-white" id="preview">
-                        <div className="max-w-6xl mx-auto px-4 text-center">
-                            <h2 className="text-3xl md:text-4xl font-bold mb-12">מה מחכה לך בפנים?</h2>
-                            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+                    {/* What's Inside - High Contrast Version */}
+                    <section id="preview" className="py-20 bg-[#1B4D3E] text-white relative">
+                        <div className="max-w-7xl mx-auto px-4 text-center">
+                            <h2 className="text-3xl md:text-5xl font-bold mb-12 text-white">מה מחכה לך בפנים?</h2>
+                            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mb-16 px-4">
                                 {features.map((f, i) => (
-                                    <div key={i} className="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/10 hover:bg-white/20 transition duration-300">
+                                    <div key={i} className="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/20 hover:bg-white/20 transition duration-300 flex flex-col items-center">
                                         <div className="mb-4 flex justify-center">{f.icon}</div>
-                                        <p className="font-medium text-sm md:text-base">{f.text}</p>
+                                        <p className="font-medium text-sm md:text-base text-white">{f.text}</p>
                                     </div>
                                 ))}
                             </div>
-                            <div className="mt-16">
-                                <a href="#purchase" className="btn-gold px-12 py-5 rounded-full font-bold text-xl shadow-xl hover:shadow-gold/40 transition-all group">
-                                    אני רוצה את הספר הדיגיטלי
-                                </a>
-                            </div>
+                            <a href="#purchase" className="btn-gold px-12 py-5 rounded-full font-bold text-xl shadow-xl hover:shadow-gold/40 transition-all group text-white">
+                                אני רוצה את הספר הדיגיטלי
+                            </a>
                         </div>
                     </section>
 
                     {/* Target Audience */}
                     <section className="py-20 bg-white">
-                        <div className="max-w-5xl mx-auto px-4">
-                            <h2 className="text-3xl text-center font-bold text-primary mb-12 flex items-center justify-center gap-3">
-                                <Target className="text-accent" /> הספר הזה נכתב במיוחד בשבילך אם:
+                        <div className="max-w-5xl mx-auto px-6">
+                            <h2 className="text-3xl text-center font-bold text-[#1B4D3E] mb-12 flex items-center justify-center gap-3">
+                                <Target className="text-[#D4AF37]" /> הספר הזה נכתב במיוחד בשבילך אם:
                             </h2>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
                                 {[
-                                    "את רוצה לשמור על הבריאות בלי להסתבך במטבח",
-                                    "יש לך רגישות לגלוטן, סוכרת או צורך תזונתי מיוחד",
-                                    "נמאס לך ממתכונים שנראים טוב אבל יוצאים רע",
-                                    "חשוב לך שהאוכל יהיה טעים באמת לכל המשפחה",
-                                    "את רוצה שהמתכונים יהיו זמינים לך בנייד בכל רגע",
-                                    "את רוצה שליטה מלאה על מה שנכנס לגוף שלך"
+                                    "את רוצה את המתכונים זמינים לך בסופר או בחופשה.",
+                                    "את מעדיפה לבשל עם הטלפון או המחשב על השיש.",
+                                    "את רוצה להתחיל לבשל בריא עכשיו, בלי לחכות לשליח.",
+                                    "חשוב לך שהאוכל יהיה טעים באמת לכל המשפחה.",
+                                    "את מחפשת פתרון נגיש ומשתלם לכל הידע שלי.",
+                                    "נמאס לך ממתכונים שנראים טוב אבל יוצאים רע."
                                 ].map((item, idx) => (
-                                    <div key={idx} className="flex items-start gap-4 p-5 rounded-2xl bg-[#F8F9FA] border border-gray-100 hover:border-green-200 transition duration-300">
-                                        <div className="bg-green-50 p-2 rounded-full text-primary shrink-0"><Check size={18} strokeWidth={3} /></div>
-                                        <p className="text-lg text-gray-700 font-medium">{item}</p>
+                                    <div key={idx} className="flex items-start gap-4 p-5 rounded-2xl bg-gray-50 border border-gray-100 hover:border-green-200 transition duration-300">
+                                        <div className="bg-green-100 p-2 rounded-full text-[#1B4D3E] shrink-0"><Check size={18} strokeWidth={3} /></div>
+                                        <p className="text-lg text-gray-800 font-medium">{item}</p>
                                     </div>
                                 ))}
                             </div>
+                            <div className="text-center">
+                                <a href="#purchase" className="btn-gold inline-flex items-center gap-3 px-10 py-4 rounded-full font-bold text-lg shadow-lg">כן, זה מדבר אליי</a>
+                            </div>
                         </div>
                     </section>
 
-                    {/* Testimonials Carousel */}
-                    <section className="py-20 bg-green-50/30">
+                    {/* Testimonials */}
+                    <section className="py-20 bg-green-50/40">
                         <div className="max-w-6xl mx-auto px-4 text-center">
-                            <h2 className="text-2xl font-bold mb-16 flex items-center justify-center gap-3 text-primary">
-                                <MessageCircle className="text-[#D4AF37]" /> מה אומרות נשים שכבר אופות מהספר?
+                            <h2 className="text-2xl md:text-3xl font-bold mb-16 text-[#1B4D3E]">
+                                <MessageCircle className="text-[#D4AF37] inline ml-2" /> מה אומרות נשים שכבר אופות מהספר?
                             </h2>
                             <div className="flex flex-col md:flex-row items-center justify-center gap-8">
-                                <button onClick={prevTestimonial} className="hidden md:block p-4 rounded-full bg-white shadow-lg text-primary hover:text-accent"><ChevronRight size={32}/></button>
-                                <div className="relative glass-card p-8 md:p-12 rounded-[40px] shadow-2xl w-full max-w-4xl flex flex-col items-center">
-                                    <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-accent text-white p-3 rounded-full shadow-lg"><Heart className="fill-current" size={24} /></div>
+                                <button onClick={prevTestimonial} className="hidden md:block p-4 rounded-full bg-white shadow-md text-[#1B4D3E] hover:text-[#D4AF37] transition"><ChevronRight size={32}/></button>
+                                <div className="relative glass-card p-8 md:p-12 rounded-[40px] shadow-xl w-full max-w-4xl flex flex-col items-center border border-white">
+                                    <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-[#D4AF37] text-white p-3 rounded-full shadow-lg"><Heart className="fill-current text-white" size={24} /></div>
                                     <div className="mb-6 flex justify-center gap-2">
                                         {[...Array(5)].map((_, i) => <Star key={i} className="text-transparent" fill="url(#gold-gradient)" size={24} strokeWidth={0} />)}
                                     </div>
-                                    <div className="w-full h-auto rounded-lg bg-gray-100 border-2 border-dashed border-gray-300 overflow-hidden">
+                                    <div className="w-full h-auto rounded-xl bg-white border-2 border-dashed border-gray-200 overflow-hidden shadow-sm">
                                         <img src={testimonials[currentTestimonial].image} alt="המלצה" className="w-full h-auto object-contain max-h-[500px]" />
                                     </div>
                                 </div>
-                                <button onClick={nextTestimonial} className="hidden md:block p-4 rounded-full bg-white shadow-lg text-primary hover:text-accent"><ChevronLeft size={32}/></button>
-                            </div>
-                            <div className="flex justify-center gap-6 mt-8 md:hidden">
-                                <button onClick={prevTestimonial} className="p-4 rounded-full bg-white shadow-lg text-primary"><ChevronRight size={24}/></button>
-                                <button onClick={nextTestimonial} className="p-4 rounded-full bg-white shadow-lg text-primary"><ChevronLeft size={24}/></button>
+                                <button onClick={nextTestimonial} className="hidden md:block p-4 rounded-full bg-white shadow-md text-[#1B4D3E] hover:text-[#D4AF37] transition"><ChevronLeft size={32}/></button>
                             </div>
                         </div>
                     </section>
 
-                    {/* Final Pricing Offer */}
-                    <section id="purchase" className="py-24 bg-primary relative overflow-hidden text-center">
-                        <div className="max-w-4xl mx-auto px-4 relative z-10">
-                            {/* Heading in Gold for Visibility */}
-                            <h2 className="text-3xl md:text-5xl font-black mb-8 tracking-tight italic leading-tight text-[#D4AF37]">
+                    {/* Final Pricing Box */}
+                    <section id="purchase" className="py-24 bg-[#1B4D3E] relative overflow-hidden text-center px-4">
+                        <div className="max-w-4xl mx-auto relative z-10">
+                            <h2 className="text-3xl md:text-5xl font-black mb-12 tracking-tight italic leading-tight text-[#D4AF37]">
                                 הזמן שלך לבשל באהבה<br/>מתחיל כאן.
                             </h2>
                             
                             <div className="bg-white rounded-[40px] p-8 md:p-14 shadow-2xl max-w-lg mx-auto transform hover:scale-105 transition duration-500 relative border-8 border-white/20">
-                                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 gold-badge-shine text-white px-8 py-3 rounded-full font-bold shadow-xl text-lg uppercase tracking-wider border-2 border-white/30 z-20 whitespace-nowrap">מחיר השקה מיוחד</div>
-                                <h3 className="text-2xl font-bold text-primary mb-2 mt-4 uppercase">הספר הדיגיטלי שלי</h3>
+                                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 gold-badge-shine text-white px-8 py-3 rounded-full font-bold shadow-xl text-lg uppercase tracking-wider border-2 border-white/30 z-20 whitespace-nowrap">הצעה מיוחדת לזמן מוגבל</div>
+                                <h3 className="text-2xl font-bold text-[#1B4D3E] mb-2 mt-4 uppercase tracking-tighter">הספר הדיגיטלי המלא</h3>
                                 <p className="text-gray-500 mb-8 font-medium">גישה מלאה לכל המתכונים - להורדה מיידית</p>
                                 <div className="flex flex-col items-center justify-center mb-6">
-                                    <span className="text-2xl text-gray-400 line-through decoration-red-400 decoration-2 mb-1 font-light italic">₪79</span>
+                                    <span className="text-2xl text-gray-400 line-through decoration-red-400 decoration-2 mb-1 italic">₪79</span>
                                     <div className="flex items-start gap-1">
-                                        <span className="text-3xl font-bold text-primary mt-2">₪</span>
-                                        <span className="text-7xl font-black text-primary leading-none tracking-tighter">49</span>
+                                        <span className="text-3xl font-bold text-[#1B4D3E] mt-2">₪</span>
+                                        <span className="text-7xl font-black text-[#1B4D3E] leading-none tracking-tighter">49</span>
                                     </div>
                                 </div>
                                 <div className="mb-8 flex justify-center">
-                                    <div className="bg-green-50 px-4 py-2 rounded-full flex items-center gap-2 text-primary font-medium text-sm border border-green-100 shadow-sm">
-                                        <Zap size={16} className="text-accent" /> גישה מיידית למייל מיד לאחר הרכישה
+                                    <div className="bg-green-50 px-4 py-2 rounded-full flex items-center gap-2 text-[#1B4D3E] font-medium text-sm border border-green-100 shadow-sm">
+                                        <Zap size={16} className="text-[#D4AF37]" /> קובץ להורדה מיידית אצלך במייל
                                     </div>
                                 </div>
                                 <a href={purchaseLink} target="_blank" rel="noopener noreferrer" className="w-full btn-gold py-5 rounded-full font-bold text-xl shadow-xl shadow-gold/30 mb-6 flex justify-center items-center gap-3 group">
                                     <span>כן, אני רוצה את הספר הדיגיטלי!</span>
                                     <ArrowLeft className="group-hover:-translate-x-1 transition-transform"/>
                                 </a>
-                                <div className="flex justify-center gap-6 text-xs text-gray-400 font-medium uppercase tracking-wide">
-                                    <span className="flex items-center gap-1"><Check size={14} className="text-green-500"/> תשלום מאובטח</span>
-                                    <span className="flex items-center gap-1"><Check size={14} className="text-green-500"/> קבלה מיידית</span>
+                                <div className="flex justify-center gap-6 text-xs text-gray-500 font-medium uppercase">
+                                    <span className="flex items-center gap-1 text-[#1B4D3E]"><Check size={14} className="text-green-500"/> תשלום מאובטח</span>
+                                    <span className="flex items-center gap-1 text-[#1B4D3E]"><Check size={14} className="text-green-500"/> קבלה מיידית</span>
                                 </div>
                             </div>
                         </div>
@@ -363,7 +356,7 @@
                     {/* Sticky Mobile Button */}
                     <div className="fixed bottom-0 left-0 w-full bg-white p-4 shadow-[0_-4px_20px_rgba(0,0,0,0.1)] md:hidden z-50 border-t border-gray-100">
                         <a href={purchaseLink} className="w-full bg-gradient-to-r from-[#1B4D3E] to-[#143a2f] text-white py-4 rounded-xl font-bold text-lg shadow-lg flex items-center justify-center gap-2">
-                            אני רוצה את הספר (49₪ בלבד) <ArrowLeft size={20} />
+                            אני רוצה את הספר הדיגיטלי (49₪ בלבד) <ArrowLeft size={20} />
                         </a>
                     </div>
 
@@ -373,6 +366,7 @@
 
         const root = ReactDOM.createRoot(document.getElementById('root'));
         root.render(<DigitalOfferPage />);
-    </script>
+    </script
+<script src="https://rivkaol.github.io/legal-footer.js"></script>
 </body>
 </html>
