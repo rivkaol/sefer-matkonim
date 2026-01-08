@@ -28,7 +28,7 @@
     <script type="text/babel">
         const { useState } = React;
 
-        // --- הגדרות אייקונים ---
+        // --- הגדרת אייקונים ---
         const IconWrapper = ({ children, className, ...props }) => (
             <svg 
                 xmlns="http://www.w3.org/2000/svg" 
@@ -51,27 +51,36 @@
         const Smile = (p) => <IconWrapper {...p}><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" x2="9.01" y1="9" y2="9"/><line x1="15" x2="15.01" y1="9" y2="9"/></IconWrapper>;
         const ArrowLeft = (p) => <IconWrapper {...p}><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></IconWrapper>;
         const ChefHat = (p) => <IconWrapper {...p}><path d="M6 13.87A4 4 0 0 1 7.41 6a5.11 5.11 0 0 1 1.05-1.54 5 5 0 0 1 7.08 0A5.11 5.11 0 0 1 16.59 6 4 4 0 0 1 18 13.87V21H6Z"/><line x1="6" x2="18" y1="17" y2="17"/></IconWrapper>;
+        const Instagram = (p) => <IconWrapper {...p}><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></IconWrapper>;
+        const Facebook = (p) => <IconWrapper {...p}><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></IconWrapper>;
+        const Mail = (p) => <IconWrapper {...p}><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></IconWrapper>;
         const UtensilsCrossed = (p) => <IconWrapper {...p}><path d="m16 2-2.3 2.3a3 3 0 0 0 0 4.2l1.8 1.8a3 3 0 0 0 4.2 0L22 8"/><path d="M15 15 3.3 3.3"/><path d="m2.8 21.2 7.1-7.1"/><path d="m18.5 5.6.9.9"/><path d="m12.7 11.3-1.4 1.4"/></IconWrapper>;
         const Clock = (p) => <IconWrapper {...p}><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></IconWrapper>;
         const Trash2 = (p) => <IconWrapper {...p}><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><line x1="10" x2="10" y1="11" y2="17"/><line x1="14" x2="14" y1="11" y2="17"/></IconWrapper>;
         const Search = (p) => <IconWrapper {...p}><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></IconWrapper>;
         const Gift = (p) => <IconWrapper {...p}><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13"/><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5"/></IconWrapper>;
         const Target = (p) => <IconWrapper {...p}><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></IconWrapper>;
+        const ImageIcon = (p) => <IconWrapper {...p}><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></IconWrapper>;
+        const Menu = (p) => <IconWrapper {...p}><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></IconWrapper>;
+        const X = (p) => <IconWrapper {...p}><path d="M18 6 6 18"/><path d="m6 6 12 12"/></IconWrapper>;
 
         // --- האפליקציה הראשית ---
         const LandingPage = () => {
           const [openFaq, setOpenFaq] = useState(null);
+          const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-          // קישור חיצוני לרכישה
+          // קישור לרכישה (מופיע רק בסוף)
           const purchaseLink = "https://private.invoice4u.co.il/newsite/he/clearing/public/i4u-clearing?ProductGuid=01f99036-3332-4744-a2bc-1a6f96893572";
           
-          const digitalLink = "#"; 
+          // קישור לעמוד דיגיטלי
+          const digitalLink = "https://rivkaholtsberg.co.il/sefer-matkonim/digital-book.html"; 
 
+          // צבעי מותג
           const colors = {
-            primary: '#1B4D3E', // ירוק
-            accent: '#D4AF37',  // זהב
-            bg: '#F8F9FA',      // שמנת
-            text: '#333333',    // אפור כהה
+            primary: '#1B4D3E', // Green
+            accent: '#D4AF37',  // Gold
+            bg: '#F8F9FA',      // Cream
+            text: '#333333',    // Dark Grey
           };
 
           const toggleFaq = (index) => {
@@ -87,6 +96,7 @@
             { icon: <BookOpen className="w-6 h-6 text-accent" />, text: "15 מתכוני חגים" },
           ];
 
+          // המלצות
           const testimonials = [
             { id: 1, image: "hamlza1.png" },
             { id: 2, image: "hamlza2.png" },
@@ -103,6 +113,7 @@
             setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
           };
 
+          // נתוני מתכונים
           const recipes = [
             {
               title: "סניקרס שוקולד",
@@ -242,7 +253,7 @@
                 `}
               </style>
 
-              {/* Header */}
+              {/* Logo Header (No Nav) */}
               <div className="absolute top-0 w-full z-50 pt-6 pb-4 flex justify-center">
                  <div className="flex flex-col items-center gap-2">
                     <div className="h-20 w-auto">
@@ -278,6 +289,7 @@
                         <br/><strong>הצטרפי למטבח הבריא והשמח שלי.</strong>
                       </p>
                       <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
+                        {/* Scroll Button - No Price - Button 1 */}
                         <a href="#preview" className="btn-gold px-8 py-4 rounded-full font-bold text-lg shadow-xl shadow-gold/30 flex items-center justify-center gap-2 hover:-translate-y-1 transition-transform">
                           👀 תראי לי איזה מתכונים יש בפנים
                         </a>
@@ -285,17 +297,14 @@
                     </div>
 
                     <div className="relative mx-auto lg:ml-0 animate-float flex flex-col items-center">
-                      {/* תצוגת הספר המותאמת אישית */}
-                      <div className="relative max-w-[320px] sm:max-w-[400px] w-full transform rotate-[-3deg] hover:rotate-0 transition duration-700 ease-out group">
-                        <div className="absolute inset-0 bg-black opacity-10 blur-2xl rounded-full transform translate-y-4 scale-95 pointer-events-none"></div>
-                        <div className="relative rounded-xl overflow-hidden shadow-2xl bg-white flex items-center justify-center">
-                          {/* תמונת השער כפי שהיא מועלית */}
-                          <img src="daf shaar.jpg" alt="כריכת הספר" className="w-full h-auto block" />
-                          <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent z-10 opacity-0 group-hover:opacity-100 transition duration-700 pointer-events-none"></div>
+                      <div className="relative w-72 h-[450px] sm:w-80 sm:h-[500px] bg-gradient-to-tr from-gray-100 to-white rounded-r-xl rounded-l-md shadow-[20px_20px_60px_rgba(0,0,0,0.15)] border-l-[12px] border-primary flex items-center justify-center transform rotate-[-3deg] hover:rotate-0 transition duration-700 ease-out group overflow-hidden">
+                        <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/40 to-transparent z-10 opacity-0 group-hover:opacity-100 transition duration-700 pointer-events-none"></div>
+                        <div className="w-full h-full bg-white rounded-r-xl rounded-l-md overflow-hidden">
+                             <img src="daf shaar.jpg" alt="כריכת הספר - המטבח הבריא" className="w-full h-full object-cover" />
                         </div>
                       </div>
                       
-                      {/* העיגול הצף של מחיר ההשקה */}
+                      {/* Badge: Updated */}
                       <div className="absolute -bottom-8 -right-8 w-40 h-40 bg-primary rounded-full text-white flex items-center justify-center text-center p-2 shadow-2xl border-4 border-white/50 backdrop-blur-md transform rotate-12 hover:rotate-[20deg] transition duration-300">
                         <div className="flex flex-col items-center leading-tight">
                            <span className="font-bold text-lg">מהדורה</span>
@@ -343,6 +352,7 @@
                     </div>
                   </div>
 
+                  {/* Hardest Part Design */}
                   <div className="mt-20 relative inline-block group cursor-pointer">
                      <div className="absolute inset-0 bg-accent blur-2xl opacity-20 rounded-full group-hover:opacity-40 transition-opacity duration-500"></div>
                      <div className="relative p-8 bg-white/80 backdrop-blur-md rounded-3xl border border-primary/20 shadow-lg max-w-2xl mx-auto transform transition-all duration-300 group-hover:scale-105 group-hover:shadow-2xl group-hover:border-accent/50">
@@ -360,14 +370,14 @@
                   <div className="glass-card rounded-[40px] p-8 md:p-14 border border-white shadow-2xl relative">
                     <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full filter blur-3xl -z-10"></div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
                        <div className="order-2 md:order-1 space-y-8">
                           <div className="space-y-2">
                             <span className="text-accent font-bold tracking-widest text-sm uppercase">הסיפור שלי</span>
                             <h2 className="text-3xl md:text-5xl font-bold text-primary">גם אני הייתי שם.</h2>
                           </div>
                           
-                          <div className="space-y-6 text-lg text-gray-700 leading-relaxed font-light space-y-4">
+                          <div className="space-y-6 text-lg text-gray-700 leading-relaxed font-light">
                             <p>
                               פתאום באמצע החיים לא יכולתי יותר לאכול קמחים רגילים.
                               המתכונים מהאינטרנט? פשוט לא היו טעימים.
@@ -385,6 +395,7 @@
                        <div className="order-1 md:order-2 relative">
                          <div className="absolute inset-0 bg-accent rounded-full transform translate-x-4 translate-y-4 opacity-20 blur-md"></div>
                          <div className="relative w-full aspect-square rounded-full overflow-hidden border-[10px] border-white shadow-2xl bg-gray-100 flex items-center justify-center">
+                            {/* Portrait Image */}
                             <img src="profile.jpg.jpg" alt="רבקה הולצברג" className="w-full h-full object-cover" />
                          </div>
                          <div className="absolute -bottom-4 -left-4 bg-white p-4 rounded-xl shadow-lg border-r-4 border-primary max-w-[180px]">
@@ -421,6 +432,7 @@
                        <div className="glass-card rounded-[32px] p-2 md:p-6 bg-white text-gray-800 max-w-5xl mx-auto shadow-2xl transition-all duration-300">
                          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                            
+                           {/* Recipe Image */}
                            <div className="h-72 md:h-96 bg-gray-100 rounded-2xl flex items-center justify-center relative overflow-hidden group">
                               <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition duration-500 pointer-events-none"></div>
                               <img 
@@ -433,6 +445,7 @@
                               </div>
                            </div>
 
+                           {/* Recipe Text */}
                            <div className="text-right p-6 md:pl-12">
                               <div className="text-accent text-sm font-bold tracking-widest uppercase mb-2">הצצה למתכון</div>
                               <h3 className="text-3xl md:text-4xl font-bold text-primary mb-4 transition-all duration-300">{recipes[currentRecipe].title}</h3>
@@ -453,6 +466,7 @@
                        </div>
                        
                        <div className="text-center mt-12">
+                         {/* Button scrolls to purchase, no price displayed - Button 2 */}
                          <a href="#purchase" className="btn-gold inline-flex items-center gap-3 px-12 py-5 rounded-full font-bold text-xl shadow-xl hover:shadow-gold/40 transition-all group">
                             <span>אני רוצה את הספר</span>
                             <ArrowLeft size={24} className="group-hover:-translate-x-1 transition-transform" />
@@ -490,12 +504,14 @@
                     ))}
                   </div>
 
+                  {/* Button 3 - Below Target Audience */}
                   <div className="text-center mt-8">
                         <a href="#purchase" className="btn-gold inline-flex items-center gap-3 px-10 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-gold/40 transition-all">
                             כן, זה מדבר אליי
                         </a>
                   </div>
 
+                  {/* Quiet Digital Mention */}
                   <div className="text-center mt-8 p-4">
                       <p className="text-gray-600 text-sm md:text-base">
                           ואם כרגע נוח לך רק בפורמט דיגיטלי – <br className="md:hidden"/>
@@ -513,6 +529,7 @@
                   <h2 className="text-3xl md:text-4xl font-bold text-primary mb-16">נשים מספרות על השינוי במטבח</h2>
                   
                   <div className="flex flex-col md:flex-row items-center justify-center gap-8">
+                      {/* Desktop Navigation: Prev (Right in RTL) */}
                       <button onClick={prevTestimonial} className="hidden md:block p-4 rounded-full bg-white shadow-lg hover:scale-110 transition text-primary hover:text-accent z-10">
                         <ChevronRight size={32} />
                       </button>
@@ -522,14 +539,16 @@
                             <Heart className="fill-current" size={24} />
                          </div>
                          
+                         {/* Shiny Stars */}
                          <div className="mb-6 flex justify-center gap-2 mt-2">
                             {[...Array(5)].map((_, i) => (
                               <Star key={i} className="text-transparent" fill="url(#gold-gradient)" size={28} strokeWidth={0} />
                             ))}
                          </div>
                          
+                         {/* Recommendation Image */}
                          <div className="flex flex-col items-center gap-4 w-full">
-                            <div className="w-full max-w-md h-auto rounded-lg bg-gray-100 border-2 border-dashed border-gray-300 flex items-center justify-center p-2 transform rotate-1 hover:rotate-0 transition duration-300 shadow-sm hover:border-accent overflow-hidden">
+                            <div className="w-full max-w-md h-auto rounded-lg bg-gray-100 border-2 border-dashed border-gray-300 flex flex-col items-center justify-center p-2 transform rotate-1 hover:rotate-0 transition duration-300 shadow-sm hover:border-accent overflow-hidden">
                                <img 
                                 src={testimonials[currentTestimonial].image} 
                                 alt="המלצה"
@@ -539,11 +558,13 @@
                          </div>
                       </div>
 
+                      {/* Desktop Navigation: Next (Left in RTL) */}
                       <button onClick={nextTestimonial} className="hidden md:block p-4 rounded-full bg-white shadow-lg hover:scale-110 transition text-primary hover:text-accent z-10">
                         <ChevronLeft size={32} />
                       </button>
                   </div>
 
+                  {/* Mobile Navigation (Below) */}
                   <div className="flex justify-center gap-6 mt-8 md:hidden">
                      <button onClick={prevTestimonial} className="p-4 rounded-full bg-white shadow-lg text-primary hover:text-accent"><ChevronRight size={24} /></button>
                      <button onClick={nextTestimonial} className="p-4 rounded-full bg-white shadow-lg text-primary hover:text-accent"><ChevronLeft size={24} /></button>
@@ -594,7 +615,7 @@
                 </div>
               </section>
 
-              {/* Pricing / Final CTA */}
+              {/* Pricing / Final CTA - The ONLY place with numbers */}
               <section id="purchase" className="py-24 bg-primary relative overflow-hidden text-center">
                  <div className="absolute inset-0 bg-pattern opacity-10"></div>
                  <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-accent to-transparent opacity-50"></div>
@@ -611,6 +632,7 @@
                        <h3 className="text-2xl font-bold text-primary mb-2 mt-4">המטבח הבריא שלי</h3>
                        <p className="text-gray-500 mb-8 font-medium">מהדורה מודפסת יוקרתית + עותק דיגיטלי</p>
                        
+                       {/* Price Display */}
                        <div className="flex flex-col items-center justify-center mb-6">
                          <span className="text-2xl text-gray-400 line-through decoration-red-400 decoration-2 mb-1">₪129</span>
                          <div className="flex items-start gap-1">
@@ -625,6 +647,7 @@
                           </div>
                        </div>
                        
+                       {/* Button 5 - Final Sale */}
                        <a href={purchaseLink} target="_blank" rel="noopener noreferrer" className="w-full btn-gold py-5 rounded-full font-bold text-xl shadow-xl shadow-gold/30 mb-6 flex justify-center items-center gap-3 group">
                          <span>כן, אני רוצה את הספר!</span>
                          <ArrowLeft className="group-hover:-translate-x-1 transition-transform"/>
@@ -638,6 +661,30 @@
                  </div>
               </section>
 
+              {/* Footer */}
+              <footer className="bg-[#153e32] text-white py-20 text-center border-t border-white/5">
+                <div className="max-w-3xl mx-auto px-4 space-y-8">
+                   
+                   <div>
+                     <h3 className="text-xl font-bold mb-4 text-accent">רבקה הולצברג</h3>
+                     <p className="text-gray-400 leading-relaxed max-w-lg mx-auto">
+                       מלווה נשים בדרך לשינוי אמיתי דרך תזונה טבעית.
+                       מאמינה שבריאות מתחילה במטבח שמח, פשוט וטעים.
+                     </p>
+                   </div>
+                   
+                   <div className="pt-8">
+                     <div className="flex justify-center gap-6 mb-8">
+                        <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-accent hover:text-white transition duration-300"><Instagram size={20}/></a>
+                        <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-accent hover:text-white transition duration-300"><Facebook size={20}/></a>
+                        <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-accent hover:text-white transition duration-300"><Mail size={20}/></a>
+                     </div>
+                     <p className="text-sm text-gray-400">
+                       בריאות שבאה מהטבע | מועדון הפרימיום של רבקה הולצברג
+                     </p>
+                   </div>
+                </div>
+              </footer>
             </div>
           );
         };
@@ -645,6 +692,5 @@
         const root = ReactDOM.createRoot(document.getElementById('root'));
         root.render(<LandingPage />);
     </script>
-<script src="https://rivkaol.github.io/legal-footer.js"></script>
 </body>
 </html>
