@@ -58,7 +58,7 @@
         }
         @media (min-width: 768px) {
             .phone-container {
-                width: 240px; /* Standard size for desktop */
+                width: 260px; /* Slightly larger for desktop visibility */
             }
         }
         .phone-notch {
@@ -144,12 +144,12 @@
             };
 
             const features = [
-                { icon: <ChefHat className="w-6 h-6 text-[#D4AF37]" />, text: "12 מאפים מלוחים" },
-                { icon: <Leaf className="w-6 h-6 text-[#D4AF37]" />, text: "11 מנות עיקריות" },
-                { icon: <Heart className="w-6 h-6 text-[#D4AF37]" />, text: "10 מתכונים עם טופו" },
-                { icon: <Star className="w-6 h-6 text-[#D4AF37]" />, text: "19 עוגות בריאות" },
-                { icon: <Smile className="w-6 h-6 text-[#D4AF37]" />, text: "15 נשנושים מתוקים" },
-                { icon: <BookOpen className="w-6 h-6 text-[#D4AF37]" />, text: "15 מתכוני חגים" },
+                { icon: <ChefHat className="w-8 h-8 text-[#D4AF37]" />, text: "12 מאפים מלוחים" },
+                { icon: <Leaf className="w-8 h-8 text-[#D4AF37]" />, text: "11 מנות עיקריות" },
+                { icon: <Heart className="w-8 h-8 text-[#D4AF37]" />, text: "10 מתכונים עם טופו" },
+                { icon: <Star className="w-8 h-8 text-[#D4AF37]" />, text: "19 עוגות בריאות" },
+                { icon: <Smile className="w-8 h-8 text-[#D4AF37]" />, text: "15 נשנושים מתוקים" },
+                { icon: <BookOpen className="w-8 h-8 text-[#D4AF37]" />, text: "15 מתכוני חגים" },
             ];
 
             const testimonials = [
@@ -197,21 +197,21 @@
                         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                                 
-                                <div className="text-center lg:text-right space-y-6 z-10">
-                                    <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-white border border-green-100 text-[#1B4D3E] text-sm font-bold shadow-sm backdrop-blur-sm">
+                                <div className="text-center lg:text-right space-y-8 z-10">
+                                    <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-white border border-green-100 text-[#1B4D3E] text-lg font-bold shadow-sm backdrop-blur-sm">
                                         ללא גלוטן | ללא סוכר | 100% הנאה
                                     </div>
-                                    <h1 className="text-4xl lg:text-7xl font-black leading-tight text-[#1B4D3E] tracking-tight">
+                                    <h1 className="text-5xl lg:text-7xl font-black leading-tight text-[#1B4D3E] tracking-tight">
                                         המתכונים שלי <br/>
                                         <span className="text-[#D4AF37]">תמיד איתך בכיס</span>
                                     </h1>
-                                    <p className="text-xl text-gray-700 max-w-lg mx-auto lg:mx-0 leading-relaxed font-light">
+                                    <p className="text-2xl text-gray-700 max-w-lg mx-auto lg:mx-0 leading-relaxed font-light">
                                         למי שרוצה את המטבח הבריא זמין בכל רגע: <br/>
                                         <strong>בנייד או במחשב.</strong>
-                                        <br/><span className="text-sm opacity-80 italic">הורדה מיידית למייל | בלי דמי משלוח</span>
+                                        <br/><span className="text-lg opacity-90 italic">הורדה מיידית למייל | בלי דמי משלוח</span>
                                     </p>
                                     <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4 mb-24 lg:mb-0">
-                                        <a href="#preview" className="btn-gold px-12 py-4 rounded-full font-bold text-lg shadow-xl shadow-gold/30 flex items-center justify-center gap-2 hover:-translate-y-1 transition-transform">
+                                        <a href="#preview" className="btn-gold px-12 py-5 rounded-full font-bold text-xl shadow-xl shadow-gold/30 flex items-center justify-center gap-2 hover:-translate-y-1 transition-transform">
                                             👀 תראי לי מה מחכה לך בפנים
                                         </a>
                                     </div>
@@ -227,11 +227,11 @@
                                         </div>
                                     </div>
                                     
-                                    <div className="absolute -bottom-6 -right-6 md:-right-10 w-32 h-32 bg-[#1B4D3E] rounded-full text-white flex items-center justify-center text-center p-2 shadow-2xl border-4 border-[#D4AF37] z-20">
+                                    <div className="absolute -bottom-6 -right-6 md:-right-10 w-40 h-40 bg-[#1B4D3E] rounded-full text-white flex items-center justify-center text-center p-2 shadow-2xl border-4 border-[#D4AF37] z-20">
                                         <div className="flex flex-col items-center leading-tight">
-                                            <span className="font-bold text-lg text-white">גישה</span>
-                                            <span className="font-bold text-lg text-white">מיידית</span>
-                                            <span className="font-bold text-sm mt-1 text-[#D4AF37]">49₪ בלבד</span>
+                                            <span className="font-bold text-xl text-white">גישה</span>
+                                            <span className="font-bold text-xl text-white">מיידית</span>
+                                            <span className="font-bold text-2xl mt-1 text-[#D4AF37]">69₪ בלבד</span>
                                         </div>
                                     </div>
                                 </div>
@@ -241,9 +241,9 @@
                     </header>
 
                     {/* Transition Sentence */}
-                    <section className="py-16 bg-white/60">
-                        <div className="max-w-3xl mx-auto px-6 text-center">
-                            <p className="text-xl md:text-2xl text-[#1B4D3E] font-medium leading-relaxed">
+                    <section className="py-20 bg-white/60">
+                        <div className="max-w-4xl mx-auto px-6 text-center">
+                            <p className="text-2xl md:text-3xl text-[#1B4D3E] font-medium leading-relaxed">
                                 קיבלתי מכן המון בקשות לגרסה של הספר <span className="font-black">רק בדיגיטלי</span>. <br/>
                                 <span className="text-gray-700">החלטתי להוציא את המהדורה הזו כדי שהידע יהיה נגיש לכל אחת ובכל רגע, בנוחות מקסימלית ישר מהנייד.</span>
                             </p>
@@ -251,17 +251,17 @@
                     </section>
 
                     {/* Shortened Story */}
-                    <section className="py-16 relative overflow-hidden">
-                        <div className="max-w-4xl mx-auto px-4">
-                            <div className="glass-card rounded-[40px] p-8 md:p-12 border border-white flex flex-col md:flex-row items-center gap-10">
+                    <section className="py-20 relative overflow-hidden">
+                        <div className="max-w-5xl mx-auto px-4">
+                            <div className="glass-card rounded-[40px] p-10 md:p-14 border border-white flex flex-col md:flex-row items-center gap-12">
                                 <div className="md:w-2/3 order-2 md:order-1 text-center md:text-right">
-                                    <h2 className="text-2xl font-bold text-[#1B4D3E] mb-4">למה היה לי חשוב להנגיש לך את הידע הזה?</h2>
-                                    <p className="text-lg text-gray-700 leading-relaxed font-light">
+                                    <h2 className="text-3xl font-bold text-[#1B4D3E] mb-6">למה היה לי חשוב להנגיש לך את הידע הזה?</h2>
+                                    <p className="text-xl text-gray-800 leading-relaxed font-light">
                                         אחרי מאות ניסויים במטבח הפרטי שלי, מצאתי את הנוסחאות שעובדות – אלה שגורמות למשפחה להגיד "זה טעים כמו רגיל!". אני רוצה שהידע הזה יהיה זמין לכל אחת מכן, בכל רגע, כדי שתוכלו לבחור בבריאות בלי מאמץ ובלי לחכות.
                                     </p>
                                 </div>
                                 <div className="md:w-1/3 order-1 md:order-2">
-                                    <div className="w-44 aspect-square mx-auto rounded-full overflow-hidden border-[6px] border-white shadow-xl bg-gray-200">
+                                    <div className="w-52 aspect-square mx-auto rounded-full overflow-hidden border-[6px] border-white shadow-xl bg-gray-200">
                                         <img src="profile.jpg.jpg" alt="רבקה הולצברג" className="w-full h-full object-cover" />
                                     </div>
                                 </div>
@@ -270,30 +270,30 @@
                     </section>
 
                     {/* What's Inside */}
-                    <section id="preview" className="py-20 bg-[#1B4D3E] text-white relative">
+                    <section id="preview" className="py-24 bg-[#1B4D3E] text-white relative">
                         <div className="max-w-7xl mx-auto px-4 text-center">
-                            <h2 className="text-3xl md:text-5xl font-bold mb-12 text-white">מה מחכה לך בפנים?</h2>
-                            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mb-16 px-4">
+                            <h2 className="text-4xl md:text-5xl font-bold mb-14 text-white">מה מחכה לך בפנים?</h2>
+                            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 mb-20 px-4">
                                 {features.map((f, i) => (
-                                    <div key={i} className="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/20 hover:bg-white/20 transition duration-300 flex flex-col items-center">
+                                    <div key={i} className="bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/20 hover:bg-white/20 transition duration-300 flex flex-col items-center">
                                         <div className="mb-4 flex justify-center">{f.icon}</div>
-                                        <p className="font-medium text-sm md:text-base text-white">{f.text}</p>
+                                        <p className="font-medium text-lg md:text-xl text-white">{f.text}</p>
                                     </div>
                                 ))}
                             </div>
-                            <a href="#purchase" className="btn-gold px-12 py-5 rounded-full font-bold text-xl shadow-xl hover:shadow-gold/40 transition-all group text-white">
+                            <a href="#purchase" className="btn-gold px-14 py-6 rounded-full font-bold text-2xl shadow-xl hover:shadow-gold/40 transition-all group text-white">
                                 אני רוצה את הספר הדיגיטלי
                             </a>
                         </div>
                     </section>
 
                     {/* Target Audience */}
-                    <section className="py-20 bg-white">
+                    <section className="py-24 bg-white">
                         <div className="max-w-5xl mx-auto px-6">
-                            <h2 className="text-3xl text-center font-bold text-[#1B4D3E] mb-12 flex items-center justify-center gap-3">
-                                <Target className="text-[#D4AF37]" /> הספר הזה נכתב במיוחד בשבילך אם:
+                            <h2 className="text-3xl md:text-4xl text-center font-bold text-[#1B4D3E] mb-16 flex items-center justify-center gap-4">
+                                <Target className="text-[#D4AF37] w-10 h-10" /> הספר הזה נכתב במיוחד בשבילך אם:
                             </h2>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
                                 {[
                                     "את רוצה את המתכונים זמינים לך בסופר או בחופשה.",
                                     "את מעדיפה לבשל עם הטלפון או המחשב על השיש.",
@@ -302,39 +302,39 @@
                                     "את מחפשת פתרון נגיש ומשתלם לכל הידע שלי.",
                                     "נמאס לך ממתכונים שנראים טוב אבל יוצאים רע."
                                 ].map((item, idx) => (
-                                    <div key={idx} className="flex items-start gap-4 p-5 rounded-2xl bg-gray-50 border border-gray-100 hover:border-green-200 transition duration-300">
-                                        <div className="bg-green-100 p-2 rounded-full text-[#1B4D3E] shrink-0"><Check size={18} strokeWidth={3} /></div>
-                                        <p className="text-lg text-gray-800 font-medium">{item}</p>
+                                    <div key={idx} className="flex items-start gap-5 p-6 rounded-2xl bg-gray-50 border border-gray-100 hover:border-green-200 transition duration-300">
+                                        <div className="bg-green-100 p-2 rounded-full text-[#1B4D3E] shrink-0"><Check size={24} strokeWidth={3} /></div>
+                                        <p className="text-xl text-gray-800 font-medium">{item}</p>
                                     </div>
                                 ))}
                             </div>
                             <div className="text-center">
-                                <a href="#purchase" className="btn-gold inline-flex items-center gap-3 px-10 py-4 rounded-full font-bold text-lg shadow-lg">כן, זה מדבר אליי</a>
+                                <a href="#purchase" className="btn-gold inline-flex items-center gap-3 px-12 py-5 rounded-full font-bold text-xl shadow-lg">כן, זה מדבר אליי</a>
                             </div>
                         </div>
                     </section>
 
                     {/* Testimonials */}
-                    <section className="py-20 bg-green-50/40">
+                    <section className="py-24 bg-green-50/40">
                         <div className="max-w-6xl mx-auto px-4 text-center">
-                            <h2 className="text-2xl md:text-3xl font-bold mb-16 text-[#1B4D3E]">
-                                <MessageCircle className="text-[#D4AF37] inline ml-2" /> מה אומרות נשים שכבר אופות מהספר?
+                            <h2 className="text-3xl md:text-4xl font-bold mb-20 text-[#1B4D3E]">
+                                <MessageCircle className="text-[#D4AF37] inline ml-2 w-10 h-10" /> מה אומרות נשים שכבר אופות מהספר?
                             </h2>
                             
                             <div className="relative w-full max-w-4xl mx-auto">
                                 {/* Navigation Overlay */}
                                 <div className="absolute top-1/2 -translate-y-1/2 w-full left-0 px-2 md:px-0 flex justify-between z-20 pointer-events-none">
-                                     <button onClick={prevTestimonial} className="pointer-events-auto p-3 md:p-4 rounded-full bg-white shadow-lg text-[#1B4D3E] hover:text-[#D4AF37] transition -ml-4 md:-ml-16"><ChevronRight size={24} className="md:w-8 md:h-8" /></button>
-                                     <button onClick={nextTestimonial} className="pointer-events-auto p-3 md:p-4 rounded-full bg-white shadow-lg text-[#1B4D3E] hover:text-[#D4AF37] transition -mr-4 md:-mr-16"><ChevronLeft size={24} className="md:w-8 md:h-8" /></button>
+                                     <button onClick={prevTestimonial} className="pointer-events-auto p-4 md:p-5 rounded-full bg-white shadow-xl text-[#1B4D3E] hover:text-[#D4AF37] transition -ml-4 md:-ml-20 border border-gray-100"><ChevronRight size={30} /></button>
+                                     <button onClick={nextTestimonial} className="pointer-events-auto p-4 md:p-5 rounded-full bg-white shadow-xl text-[#1B4D3E] hover:text-[#D4AF37] transition -mr-4 md:-mr-20 border border-gray-100"><ChevronLeft size={30} /></button>
                                 </div>
 
                                 <div className="relative glass-card p-8 md:p-12 rounded-[40px] shadow-xl flex flex-col items-center border border-white z-10">
-                                    <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-[#D4AF37] text-white p-3 rounded-full shadow-lg"><Heart className="fill-current text-white" size={24} /></div>
-                                    <div className="mb-6 flex justify-center gap-2">
-                                        {[...Array(5)].map((_, i) => <Star key={i} className="text-transparent" fill="url(#gold-gradient)" size={24} strokeWidth={0} />)}
+                                    <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-[#D4AF37] text-white p-4 rounded-full shadow-lg"><Heart className="fill-current text-white" size={32} /></div>
+                                    <div className="mb-6 flex justify-center gap-2 pt-4">
+                                        {[...Array(5)].map((_, i) => <Star key={i} className="text-transparent" fill="url(#gold-gradient)" size={32} strokeWidth={0} />)}
                                     </div>
                                     <div className="w-full h-auto rounded-xl bg-white border-2 border-dashed border-gray-200 overflow-hidden shadow-sm">
-                                        <img src={testimonials[currentTestimonial].image} alt="המלצה" className="w-full h-auto object-contain max-h-[500px]" />
+                                        <img src={testimonials[currentTestimonial].image} alt="המלצה" className="w-full h-auto object-contain max-h-[600px]" />
                                     </div>
                                 </div>
                             </div>
@@ -345,33 +345,33 @@
                     {/* Final Pricing Box */}
                     <section id="purchase" className="py-24 bg-[#1B4D3E] relative overflow-hidden text-center px-4">
                         <div className="max-w-4xl mx-auto relative z-10">
-                            <h2 className="text-3xl md:text-5xl font-black mb-12 tracking-tight italic leading-tight text-[#D4AF37]">
+                            <h2 className="text-4xl md:text-6xl font-black mb-16 tracking-tight italic leading-tight text-[#D4AF37]">
                                 הזמן שלך לבשל באהבה<br/>מתחיל כאן.
                             </h2>
                             
                             <div className="bg-white rounded-[40px] p-8 md:p-14 shadow-2xl max-w-lg mx-auto transform hover:scale-105 transition duration-500 relative border-8 border-white/20">
                                 <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 gold-badge-shine text-white px-8 py-3 rounded-full font-bold shadow-xl text-lg uppercase tracking-wider border-2 border-white/30 z-20 whitespace-nowrap">הצעה מיוחדת לזמן מוגבל</div>
-                                <h3 className="text-2xl font-bold text-[#1B4D3E] mb-2 mt-4 uppercase tracking-tighter">הספר הדיגיטלי המלא</h3>
-                                <p className="text-gray-500 mb-8 font-medium">גישה מלאה לכל המתכונים - להורדה מיידית</p>
-                                <div className="flex flex-col items-center justify-center mb-6">
-                                    <span className="text-2xl text-gray-400 line-through decoration-red-400 decoration-2 mb-1 italic">₪69</span>
+                                <h3 className="text-3xl font-bold text-[#1B4D3E] mb-3 mt-6 uppercase tracking-tighter">הספר הדיגיטלי המלא</h3>
+                                <p className="text-gray-500 mb-10 font-medium text-xl">גישה מלאה לכל המתכונים - להורדה מיידית</p>
+                                <div className="flex flex-col items-center justify-center mb-8">
+                                    <span className="text-3xl text-gray-400 line-through decoration-red-400 decoration-4 mb-2 italic">₪99</span>
                                     <div className="flex items-start gap-1">
-                                        <span className="text-3xl font-bold text-[#1B4D3E] mt-2">₪</span>
-                                        <span className="text-7xl font-black text-[#1B4D3E] leading-none tracking-tighter">49</span>
+                                        <span className="text-4xl font-bold text-[#1B4D3E] mt-2">₪</span>
+                                        <span className="text-8xl font-black text-[#1B4D3E] leading-none tracking-tighter">69</span>
                                     </div>
                                 </div>
-                                <div className="mb-8 flex justify-center">
-                                    <div className="bg-green-50 px-4 py-2 rounded-full flex items-center gap-2 text-[#1B4D3E] font-medium text-sm border border-green-100 shadow-sm">
-                                        <Zap size={16} className="text-[#D4AF37]" /> קובץ להורדה מיידית אצלך במייל
+                                <div className="mb-10 flex justify-center">
+                                    <div className="bg-green-50 px-6 py-3 rounded-full flex items-center gap-3 text-[#1B4D3E] font-medium text-lg border border-green-100 shadow-sm">
+                                        <Zap size={20} className="text-[#D4AF37]" /> קובץ להורדה מיידית אצלך במייל
                                     </div>
                                 </div>
-                                <a href={purchaseLink} target="_blank" rel="noopener noreferrer" className="w-full btn-gold py-5 rounded-full font-bold text-xl shadow-xl shadow-gold/30 mb-6 flex justify-center items-center gap-3 group">
+                                <a href={purchaseLink} target="_blank" rel="noopener noreferrer" className="w-full btn-gold py-6 rounded-full font-bold text-2xl shadow-xl shadow-gold/30 mb-8 flex justify-center items-center gap-3 group">
                                     <span>כן, אני רוצה את הספר הדיגיטלי!</span>
-                                    <ArrowLeft className="group-hover:-translate-x-1 transition-transform"/>
+                                    <ArrowLeft className="group-hover:-translate-x-1 transition-transform w-8 h-8"/>
                                 </a>
-                                <div className="flex justify-center gap-6 text-xs text-gray-500 font-medium uppercase">
-                                    <span className="flex items-center gap-1 text-[#1B4D3E]"><Check size={14} className="text-green-500"/> תשלום מאובטח</span>
-                                    <span className="flex items-center gap-1 text-[#1B4D3E]"><Check size={14} className="text-green-500"/> קבלה מיידית</span>
+                                <div className="flex justify-center gap-8 text-sm md:text-base text-gray-500 font-medium uppercase">
+                                    <span className="flex items-center gap-2 text-[#1B4D3E]"><Check size={18} className="text-green-500"/> תשלום מאובטח</span>
+                                    <span className="flex items-center gap-2 text-[#1B4D3E]"><Check size={18} className="text-green-500"/> קבלה מיידית</span>
                                 </div>
                             </div>
                         </div>
@@ -379,8 +379,8 @@
 
                     {/* Sticky Mobile Button */}
                     <div className="fixed bottom-0 left-0 w-full bg-white p-4 shadow-[0_-4px_20px_rgba(0,0,0,0.1)] md:hidden z-50 border-t border-gray-100">
-                        <a href={purchaseLink} className="w-full bg-gradient-to-r from-[#1B4D3E] to-[#143a2f] text-white py-4 rounded-xl font-bold text-lg shadow-lg flex items-center justify-center gap-2">
-                            אני רוצה את הספר הדיגיטלי (49₪ בלבד) <ArrowLeft size={20} />
+                        <a href={purchaseLink} className="w-full bg-gradient-to-r from-[#1B4D3E] to-[#143a2f] text-white py-4 rounded-xl font-bold text-xl shadow-lg flex items-center justify-center gap-2">
+                            אני רוצה את הספר הדיגיטלי (69₪ בלבד) <ArrowLeft size={24} />
                         </a>
                     </div>
 
@@ -391,7 +391,6 @@
         const root = ReactDOM.createRoot(document.getElementById('root'));
         root.render(<DigitalOfferPage />);
     </script>
-<script src="https://rivkaol.github.io/legal-footer.js"></script>
+    <script src="https://rivkaol.github.io/legal-footer.js"></script>
 </body>
 </html>
-
