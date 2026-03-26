@@ -21,6 +21,12 @@
             box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
         }
         
+        .glass-card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.12);
+            border-color: #D4AF37;
+        }
+
         .btn-gold {
             background: linear-gradient(135deg, #D4AF37 0%, #E5C565 100%);
             color: white;
@@ -87,26 +93,27 @@
     </svg>
 
     <!-- Header Logo (No Nav) -->
-    <div class="absolute top-0 w-full z-50 pt-6 pb-4 flex justify-center">
+    <div class="absolute top-0 w-full z-50 pt-8 pb-4 flex justify-center">
         <div class="h-20 w-auto md:h-24 transition-all">
             <img src="logo.jpg.png" alt="לוגו" class="h-full w-auto object-contain" />
         </div>
     </div>
 
     <!-- Hero Section -->
-    <header class="relative pt-36 pb-16 lg:pt-48 lg:pb-32 overflow-hidden border-b border-white/50 bg-gradient-to-b from-white to-[#F8F9FA]">
+    <header class="relative pt-40 pb-20 lg:pt-56 lg:pb-36 overflow-hidden border-b border-white/50 bg-gradient-to-b from-white to-[#F8F9FA]">
         <!-- רקע נקי ויוקרתי: לבן חלק עם הילה זהובה ורכה מאחורי אזור הספר -->
         <div class="absolute top-1/2 left-1/4 transform -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[#D4AF37]/10 filter blur-[120px] -z-10 pointer-events-none"></div>
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
                 
                 <!-- Book Image (Order 1 on Desktop -> Right Side, Order 2 on Mobile -> Bottom) -->
-                <div class="relative mx-auto lg:mr-0 animate-float order-2 lg:order-1">
+                <div class="relative mx-auto lg:mr-0 animate-float order-2 lg:order-1 mt-10 lg:mt-0">
                     <div class="relative w-72 h-[450px] sm:w-80 sm:h-[500px] lg:w-[360px] lg:h-[560px] bg-gradient-to-tr from-gray-100 to-white rounded-l-xl rounded-r-md shadow-[20px_20px_60px_rgba(0,0,0,0.15)] border-r-[12px] border-primary flex items-center justify-center transform rotate-[3deg] hover:rotate-0 transition duration-700 ease-out group overflow-hidden">
                         <div class="absolute inset-0 bg-gradient-to-tr from-transparent via-white/40 to-transparent z-10 opacity-0 group-hover:opacity-100 transition duration-700 pointer-events-none"></div>
                         <div class="w-full h-full bg-white rounded-l-xl rounded-r-md overflow-hidden">
-                            <img src="daf shaar.png" alt="כריכת הספר - המטבח הבריא" class="w-full h-full object-cover" />
+                            <!-- תמונת השער עודכנה ל-JPG -->
+                            <img src="daf shaar.jpg" alt="כריכת הספר - המטבח הבריא" class="w-full h-full object-cover" />
                         </div>
                     </div>
                     
@@ -121,25 +128,25 @@
                 </div>
                 
                 <!-- Text (Order 2 on Desktop -> Left Side, Order 1 on Mobile -> Top) -->
-                <div class="text-center lg:text-right space-y-6 z-10 order-1 lg:order-2">
-                    <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/80 border border-green-100 text-primary text-sm md:text-base font-bold shadow-sm backdrop-blur-sm">
+                <div class="text-center lg:text-right space-y-8 z-10 order-1 lg:order-2">
+                    <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/80 border border-green-100 text-primary text-sm md:text-base font-bold shadow-sm backdrop-blur-sm mb-2">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-accent"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
                         ללא גלוטן | ללא סוכר | 100% הנאה
                     </div>
-                    <h1 class="text-4xl lg:text-6xl font-black leading-tight lg:leading-tight text-primary tracking-tight">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-black leading-tight lg:leading-tight text-primary tracking-tight">
                         סוף סוף מתכונים בריאים <br/>
-                        <span class="relative inline-block">
+                        <span class="relative inline-block mt-2">
                             <span class="relative z-10 text-[#D4AF37]">שבאמת טעימים</span>
                         </span>
                         <br/>
-                        ולא מרגישים כמו פשרה.
+                        <span class="mt-2 block">ולא מרגישים כמו פשרה.</span>
                     </h1>
-                    <p class="text-xl md:text-2xl text-gray-600 max-w-lg mx-auto lg:mx-0 leading-relaxed font-light">
+                    <p class="text-xl md:text-2xl text-gray-600 max-w-lg mx-auto lg:mx-0 leading-relaxed font-light mt-6">
                         למי שרוצה לאכול בריא – בלי לוותר על מה שהיא אוהבת.
-                        <br/><strong>הצטרפי למטבח הבריא והשמח שלי.</strong>
+                        <br/><strong class="block mt-2">הצטרפי למטבח הבריא והשמח שלי.</strong>
                     </p>
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4 mb-16 lg:mb-0">
-                        <a href="#preview" class="btn-gold px-8 py-4 md:py-5 rounded-full font-bold text-lg md:text-xl shadow-xl shadow-[#D4AF37]/30 flex items-center justify-center gap-2 hover:-translate-y-1 transition-transform">
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-8 mb-16 lg:mb-0">
+                        <a href="#preview" class="btn-gold px-10 py-5 md:py-6 rounded-full font-bold text-lg md:text-xl shadow-xl shadow-[#D4AF37]/30 flex items-center justify-center gap-3 hover:-translate-y-1 transition-transform">
                             👀 תראי לי מה מחכה בפנים
                         </a>
                     </div>
@@ -149,45 +156,45 @@
         </div>
     </header>
 
-    <!-- Pain Points Section (Redesigned per uploaded image) -->
+    <!-- Pain Points Section -->
     <section class="py-24 relative bg-gray-50/50">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 text-center relative z-10">
             <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-16">את מכירה את התסכול הזה...</h2>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
                 <!-- Card 1 -->
-                <div class="bg-white p-8 md:p-10 rounded-[32px] border border-[#D4AF37] transition duration-300 transform hover:-translate-y-1 shadow-sm hover:shadow-md group flex flex-col items-center">
-                    <div class="w-[84px] h-[84px] rounded-full flex items-center justify-center mx-auto mb-6 bg-[#1B4D3E] shadow-inner transition-transform group-hover:scale-105">
+                <div class="bg-white p-10 md:p-12 rounded-[32px] border border-[#D4AF37] transition duration-300 transform hover:-translate-y-1 shadow-sm hover:shadow-md group flex flex-col items-center">
+                    <div class="w-[84px] h-[84px] rounded-full flex items-center justify-center mx-auto mb-8 bg-[#1B4D3E] shadow-inner transition-transform group-hover:scale-105">
                         <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-[#D4AF37]"><path d="m16 2-2.3 2.3a3 3 0 0 0 0 4.2l1.8 1.8a3 3 0 0 0 4.2 0L22 8"/><path d="M15 15 3.3 3.3"/><path d="m2.8 21.2 7.1-7.1"/><path d="m18.5 5.6.9.9"/><path d="m12.7 11.3-1.4 1.4"/></svg>
                     </div>
-                    <h3 class="text-2xl md:text-3xl font-bold mb-4 text-[#1B4D3E]">"אוכל בריא" = לא טעים</h3>
-                    <p class="text-gray-600 leading-relaxed font-medium text-base md:text-lg">הניסיון להיות בריאה הופך כל ארוחה לעונש של טעמים תפלים.</p>
+                    <h3 class="text-2xl md:text-3xl font-bold mb-5 text-[#1B4D3E]">"אוכל בריא" = לא טעים</h3>
+                    <p class="text-gray-600 leading-relaxed font-medium text-lg">הניסיון להיות בריאה הופך כל ארוחה לעונש של טעמים תפלים.</p>
                 </div>
                 
                 <!-- Card 2 -->
-                <div class="bg-white p-8 md:p-10 rounded-[32px] border border-[#D4AF37] transition duration-300 transform hover:-translate-y-1 shadow-sm hover:shadow-md group flex flex-col items-center">
-                    <div class="w-[84px] h-[84px] rounded-full flex items-center justify-center mx-auto mb-6 bg-[#1B4D3E] shadow-inner transition-transform group-hover:scale-105">
+                <div class="bg-white p-10 md:p-12 rounded-[32px] border border-[#D4AF37] transition duration-300 transform hover:-translate-y-1 shadow-sm hover:shadow-md group flex flex-col items-center">
+                    <div class="w-[84px] h-[84px] rounded-full flex items-center justify-center mx-auto mb-8 bg-[#1B4D3E] shadow-inner transition-transform group-hover:scale-105">
                         <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-[#D4AF37]"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
                     </div>
-                    <h3 class="text-2xl md:text-3xl font-bold mb-4 text-[#1B4D3E]">שעות של חיפושים</h3>
-                    <p class="text-gray-600 leading-relaxed font-medium text-base md:text-lg">גוללת באינסטגרם ובאתרים, שומרת מתכונים... ובסוף אין לך באמת מה להכין.</p>
+                    <h3 class="text-2xl md:text-3xl font-bold mb-5 text-[#1B4D3E]">שעות של חיפושים</h3>
+                    <p class="text-gray-600 leading-relaxed font-medium text-lg">גוללת באינסטגרם ובאתרים, שומרת מתכונים... ובסוף אין לך באמת מה להכין.</p>
                 </div>
                 
                 <!-- Card 3 -->
-                <div class="bg-white p-8 md:p-10 rounded-[32px] border border-[#D4AF37] transition duration-300 transform hover:-translate-y-1 shadow-sm hover:shadow-md group flex flex-col items-center">
-                    <div class="w-[84px] h-[84px] rounded-full flex items-center justify-center mx-auto mb-6 bg-[#1B4D3E] shadow-inner transition-transform group-hover:scale-105">
+                <div class="bg-white p-10 md:p-12 rounded-[32px] border border-[#D4AF37] transition duration-300 transform hover:-translate-y-1 shadow-sm hover:shadow-md group flex flex-col items-center">
+                    <div class="w-[84px] h-[84px] rounded-full flex items-center justify-center mx-auto mb-8 bg-[#1B4D3E] shadow-inner transition-transform group-hover:scale-105">
                         <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-[#D4AF37]"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><line x1="10" x2="10" y1="11" y2="17"/><line x1="14" x2="14" y1="11" y2="17"/></svg>
                     </div>
-                    <h3 class="text-2xl md:text-3xl font-bold mb-4 text-[#1B4D3E]">אכזבה במטבח</h3>
-                    <p class="text-gray-600 leading-relaxed font-medium text-base md:text-lg">קנית רכיבים יקרים, השקעת זמן, ובסוף המתכון נזרק לפח. מתסכל.</p>
+                    <h3 class="text-2xl md:text-3xl font-bold mb-5 text-[#1B4D3E]">אכזבה במטבח</h3>
+                    <p class="text-gray-600 leading-relaxed font-medium text-lg">קנית רכיבים יקרים, השקעת זמן, ובסוף המתכון נזרק לפח. מתסכל.</p>
                 </div>
             </div>
 
-            <div class="mt-20 relative inline-block group cursor-pointer w-full max-w-3xl mx-auto">
-                <div class="absolute inset-0 bg-[#D4AF37] blur-2xl opacity-20 rounded-full group-hover:opacity-40 transition-opacity duration-500"></div>
-                <div class="relative p-8 md:p-10 bg-white/80 backdrop-blur-md rounded-3xl border border-primary/20 shadow-lg transform transition-all duration-300 group-hover:scale-105 group-hover:shadow-2xl group-hover:border-[#D4AF37]/50">
-                    <p class="text-2xl md:text-3xl font-medium text-primary">
-                    והכי קשה? <span class="font-light group-hover:text-primary transition-colors">להרגיש שצריך לוותר על האוכל שאת אוהבת כדי להיות בריאה.</span>
+            <div class="mt-24 relative inline-block group cursor-pointer w-full max-w-4xl mx-auto">
+                <div class="absolute inset-0 bg-[#D4AF37] blur-3xl opacity-20 rounded-full group-hover:opacity-40 transition-opacity duration-500"></div>
+                <div class="relative p-10 md:p-14 bg-white/80 backdrop-blur-md rounded-3xl border border-primary/20 shadow-lg transform transition-all duration-300 group-hover:scale-105 group-hover:shadow-2xl group-hover:border-[#D4AF37]/50">
+                    <p class="text-2xl md:text-3xl lg:text-4xl font-medium text-primary leading-relaxed">
+                    והכי קשה? <span class="font-light group-hover:text-primary transition-colors block md:inline mt-2 md:mt-0">להרגיש שצריך לוותר על האוכל שאת אוהבת כדי להיות בריאה.</span>
                     </p>
                 </div>
             </div>
@@ -196,23 +203,23 @@
 
     <!-- Personal Story -->
     <section id="about" class="py-24 relative overflow-hidden">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="glass-card rounded-[40px] p-8 md:p-16 border border-white shadow-2xl relative">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+            <div class="glass-card rounded-[40px] p-10 md:p-16 lg:p-20 border border-white shadow-2xl relative">
                 <div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full filter blur-3xl -z-10"></div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-16 lg:gap-24 items-center">
                     <div class="order-2 md:order-1 space-y-8">
-                        <div class="space-y-2">
-                            <span class="text-accent font-bold tracking-widest text-sm md:text-base uppercase">הסיפור שלי</span>
-                            <h2 class="text-3xl md:text-5xl font-bold text-primary">גם אני הייתי שם.</h2>
+                        <div class="space-y-3">
+                            <span class="text-accent font-bold tracking-widest text-base uppercase">הסיפור שלי</span>
+                            <h2 class="text-4xl md:text-5xl font-bold text-primary">גם אני הייתי שם.</h2>
                         </div>
                         
-                        <div class="space-y-6 text-lg md:text-xl text-gray-700 leading-relaxed font-light">
+                        <div class="space-y-6 text-xl text-gray-700 leading-relaxed font-light">
                             <p>
                                 פתאום באמצע החיים לא יכולתי יותר לאכול קמחים רגילים.
                                 המתכונים מהאינטרנט? פשוט לא היו טעימים.
                             </p>
-                            <p class="font-medium text-primary text-xl md:text-2xl border-r-4 border-[#D4AF37] pr-4 py-2">
+                            <p class="font-medium text-primary text-2xl border-r-4 border-[#D4AF37] pr-5 py-2">
                                 הבנתי שאני לא מוכנה לבחור בין בריאות לבין טעם.
                             </p>
                             <p>
@@ -224,11 +231,12 @@
                     
                     <div class="order-1 md:order-2 relative flex justify-center">
                         <div class="absolute inset-0 bg-[#D4AF37] rounded-full transform translate-x-4 translate-y-4 opacity-20 blur-md"></div>
-                        <div class="relative w-64 md:w-full aspect-square rounded-full overflow-hidden border-[10px] border-white shadow-2xl bg-gray-100 flex items-center justify-center">
+                        <!-- Profile Image inside Card -->
+                        <div class="relative w-72 md:w-full aspect-square rounded-full overflow-hidden border-[12px] border-white shadow-2xl bg-gray-100 flex items-center justify-center">
                             <img src="profile.jpg.jpg" alt="רבקה הולצברג" class="w-full h-full object-cover" />
                         </div>
-                        <div class="absolute -bottom-4 -left-4 md:-left-8 bg-white p-4 md:p-6 rounded-xl shadow-lg border-r-4 border-[#1B4D3E] max-w-[200px]">
-                            <p class="text-sm md:text-base font-medium text-primary">"הבריאות מתחילה במטבח שמח"</p>
+                        <div class="absolute -bottom-6 -left-6 md:-left-10 bg-white p-5 md:p-6 rounded-xl shadow-xl border-r-4 border-[#1B4D3E] max-w-[220px]">
+                            <p class="text-base md:text-lg font-medium text-primary leading-tight">"הבריאות מתחילה במטבח שמח"</p>
                         </div>
                     </div>
                 </div>
@@ -237,86 +245,83 @@
     </section>
 
     <!-- What's Inside - Features -->
-    <section id="preview" class="py-24 bg-primary text-white relative overflow-hidden">
+    <section id="preview" class="py-28 bg-primary text-white relative overflow-hidden">
         <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#ffffff 1.5px, transparent 1.5px); background-size: 30px 30px"></div>
         <div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#1B4D3E] to-transparent z-10"></div>
         
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
-            <div class="text-center mb-20">
-                <h2 class="text-3xl md:text-5xl font-bold mb-6 text-white">מה מחכה לך בפנים?</h2>
-                <p class="text-xl md:text-2xl text-green-100/90 font-light max-w-3xl mx-auto leading-relaxed">מעל 80 מתכונים מנצחים + מתכוני בסיס, טיפים והמלצות שלי. הכל מוסבר צעד אחר צעד – כדי שבאמת יצליח לך בפועל.</p>
+        <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-20">
+            <div class="text-center mb-24">
+                <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 text-white">מה מחכה לך בפנים?</h2>
+                <p class="text-xl md:text-2xl text-green-100/90 font-light max-w-3xl mx-auto leading-relaxed">
+                    מעל 80 מתכונים מנצחים + מתכוני בסיס, טיפים והמלצות שלי. הכל מוסבר צעד אחר צעד – כדי שבאמת יצליח לך בפועל.
+                </p>
             </div>
 
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 md:gap-8 mb-20">
-                <div class="bg-white/5 backdrop-blur-md p-6 md:p-8 rounded-2xl border border-white/10 text-center hover:bg-white/10 hover:-translate-y-2 transition duration-300 group flex flex-col items-center">
-                    <div class="text-accent mb-4 flex justify-center group-hover:scale-110 transition duration-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 13.87A4 4 0 0 1 7.41 6a5.11 5.11 0 0 1 1.05-1.54 5 5 0 0 1 7.08 0A5.11 5.11 0 0 1 16.59 6 4 4 0 0 1 18 13.87V21H6Z"/><line x1="6" x2="18" y1="17" y2="17"/></svg>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 md:gap-8 mb-24">
+                <div class="bg-white/5 backdrop-blur-md p-8 rounded-3xl border border-white/10 text-center hover:bg-white/10 hover:-translate-y-2 transition duration-300 group flex flex-col items-center">
+                    <div class="text-accent mb-5 flex justify-center group-hover:scale-110 transition duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 13.87A4 4 0 0 1 7.41 6a5.11 5.11 0 0 1 1.05-1.54 5 5 0 0 1 7.08 0A5.11 5.11 0 0 1 16.59 6 4 4 0 0 1 18 13.87V21H6Z"/><line x1="6" x2="18" y1="17" y2="17"/></svg>
                     </div>
-                    <p class="font-medium text-base md:text-lg text-white">12 מאפים מלוחים</p>
+                    <p class="font-medium text-lg text-white">12 מאפים מלוחים</p>
                 </div>
-                <div class="bg-white/5 backdrop-blur-md p-6 md:p-8 rounded-2xl border border-white/10 text-center hover:bg-white/10 hover:-translate-y-2 transition duration-300 group flex flex-col items-center">
-                    <div class="text-accent mb-4 flex justify-center group-hover:scale-110 transition duration-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+                <div class="bg-white/5 backdrop-blur-md p-8 rounded-3xl border border-white/10 text-center hover:bg-white/10 hover:-translate-y-2 transition duration-300 group flex flex-col items-center">
+                    <div class="text-accent mb-5 flex justify-center group-hover:scale-110 transition duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
                     </div>
-                    <p class="font-medium text-base md:text-lg text-white">11 מנות עיקריות</p>
+                    <p class="font-medium text-lg text-white">11 מנות עיקריות</p>
                 </div>
-                <div class="bg-white/5 backdrop-blur-md p-6 md:p-8 rounded-2xl border border-white/10 text-center hover:bg-white/10 hover:-translate-y-2 transition duration-300 group flex flex-col items-center">
-                    <div class="text-accent mb-4 flex justify-center group-hover:scale-110 transition duration-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                <div class="bg-white/5 backdrop-blur-md p-8 rounded-3xl border border-white/10 text-center hover:bg-white/10 hover:-translate-y-2 transition duration-300 group flex flex-col items-center">
+                    <div class="text-accent mb-5 flex justify-center group-hover:scale-110 transition duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
                     </div>
-                    <p class="font-medium text-base md:text-lg text-white">10 מתכונים עם טופו</p>
+                    <p class="font-medium text-lg text-white">10 מתכונים עם טופו</p>
                 </div>
-                <div class="bg-white/5 backdrop-blur-md p-6 md:p-8 rounded-2xl border border-white/10 text-center hover:bg-white/10 hover:-translate-y-2 transition duration-300 group flex flex-col items-center">
-                    <div class="text-accent mb-4 flex justify-center group-hover:scale-110 transition duration-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <div class="bg-white/5 backdrop-blur-md p-8 rounded-3xl border border-white/10 text-center hover:bg-white/10 hover:-translate-y-2 transition duration-300 group flex flex-col items-center">
+                    <div class="text-accent mb-5 flex justify-center group-hover:scale-110 transition duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
                     </div>
-                    <p class="font-medium text-base md:text-lg text-white">19 עוגות בריאות</p>
+                    <p class="font-medium text-lg text-white">19 עוגות בריאות</p>
                 </div>
-                <div class="bg-white/5 backdrop-blur-md p-6 md:p-8 rounded-2xl border border-white/10 text-center hover:bg-white/10 hover:-translate-y-2 transition duration-300 group flex flex-col items-center">
-                    <div class="text-accent mb-4 flex justify-center group-hover:scale-110 transition duration-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" x2="9.01" y1="9" y2="9"/><line x1="15" x2="15.01" y1="9" y2="9"/></svg>
+                <div class="bg-white/5 backdrop-blur-md p-8 rounded-3xl border border-white/10 text-center hover:bg-white/10 hover:-translate-y-2 transition duration-300 group flex flex-col items-center">
+                    <div class="text-accent mb-5 flex justify-center group-hover:scale-110 transition duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" x2="9.01" y1="9" y2="9"/><line x1="15" x2="15.01" y1="9" y2="9"/></svg>
                     </div>
-                    <p class="font-medium text-base md:text-lg text-white">15 נשנושים מתוקים</p>
+                    <p class="font-medium text-lg text-white">15 נשנושים מתוקים</p>
                 </div>
-                <div class="bg-white/5 backdrop-blur-md p-6 md:p-8 rounded-2xl border border-white/10 text-center hover:bg-white/10 hover:-translate-y-2 transition duration-300 group flex flex-col items-center">
-                    <div class="text-accent mb-4 flex justify-center group-hover:scale-110 transition duration-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                <div class="bg-white/5 backdrop-blur-md p-8 rounded-3xl border border-white/10 text-center hover:bg-white/10 hover:-translate-y-2 transition duration-300 group flex flex-col items-center">
+                    <div class="text-accent mb-5 flex justify-center group-hover:scale-110 transition duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
                     </div>
-                    <p class="font-medium text-base md:text-lg text-white">15 מתכוני חגים</p>
+                    <p class="font-medium text-lg text-white">15 מתכוני חגים</p>
                 </div>
             </div>
 
             <!-- Recipe Teaser - Dynamic Carousel -->
-            <div class="relative">
-                <div class="glass-card rounded-[32px] p-4 md:p-10 bg-white text-gray-800 max-w-5xl mx-auto shadow-2xl transition-all duration-300">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
-                        <div class="h-72 md:h-[450px] bg-gray-100 rounded-2xl flex items-center justify-center relative overflow-hidden group">
+            <div class="relative max-w-5xl mx-auto">
+                <div class="glass-card rounded-[40px] p-6 md:p-12 bg-white text-gray-800 shadow-2xl transition-all duration-300">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
+                        <div class="h-80 md:h-[480px] bg-gray-100 rounded-3xl flex items-center justify-center relative overflow-hidden group shadow-inner">
                             <div class="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition duration-500 pointer-events-none"></div>
                             <img id="recipe-img" src="snikers.png" alt="מתכון" class="w-full h-full object-cover" />
-                            <div class="absolute bottom-6 left-6 bg-white/90 backdrop-blur-sm px-5 py-3 rounded-full text-base md:text-lg font-bold text-primary shadow-lg flex items-center gap-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="#D4AF37" stroke="#D4AF37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <div class="absolute bottom-6 left-6 bg-white/95 backdrop-blur-sm px-6 py-3 rounded-full text-lg font-bold text-primary shadow-xl flex items-center gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="#D4AF37" stroke="#D4AF37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
                                 <span id="recipe-tag">ללא סוכר</span>
                             </div>
                         </div>
 
-                        <div class="text-right p-4 md:p-8 md:pl-12">
-                            <div class="text-accent text-sm md:text-base font-bold tracking-widest uppercase mb-3">הצצה למתכון</div>
-                            <h3 id="recipe-title" class="text-3xl md:text-5xl font-bold text-primary mb-6 transition-all duration-300">סניקרס שוקולד</h3>
-                            <p class="text-gray-600 mb-8 text-lg md:text-xl leading-relaxed min-h-[100px]">
+                        <div class="text-right p-4 md:p-6">
+                            <div class="text-accent text-base font-bold tracking-widest uppercase mb-4">הצצה למתכון</div>
+                            <h3 id="recipe-title" class="text-4xl md:text-5xl font-bold text-primary mb-6 transition-all duration-300">סניקרס שוקולד</h3>
+                            <p class="text-gray-600 mb-10 text-xl leading-relaxed min-h-[120px]">
                                 <span id="recipe-desc">מתוק ועשיר, פינוק אמיתי. חטיף אנרגיה מושלם שמרגיש כמו הממתק המוכר אבל בגרסה בריאה ומזינה יותר. הביס המושלם ליד הקפה.</span>
-                                <br/><br/>
-                                <span class="font-medium text-primary flex items-center gap-2">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 
-                                    זמן הכנה: <span id="recipe-time">20 דקות</span> | רמת קושי: <span id="recipe-diff">קל</span>
-                                </span>
                             </p>
                             
                             <div class="flex gap-4">
-                                <button onclick="nextRecipe()" class="p-4 rounded-full border border-gray-200 hover:bg-[#1B4D3E] hover:text-white hover:border-[#1B4D3E] transition duration-300">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                                <button onclick="nextRecipe()" class="p-4 rounded-full border border-gray-200 hover:bg-[#1B4D3E] hover:text-white hover:border-[#1B4D3E] transition duration-300 shadow-sm">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
                                 </button>
-                                <button onclick="prevRecipe()" class="p-4 rounded-full border border-gray-200 hover:bg-[#1B4D3E] hover:text-white hover:border-[#1B4D3E] transition duration-300">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                                <button onclick="prevRecipe()" class="p-4 rounded-full border border-gray-200 hover:bg-[#1B4D3E] hover:text-white hover:border-[#1B4D3E] transition duration-300 shadow-sm">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
                                 </button>
                             </div>
                         </div>
@@ -328,43 +333,43 @@
 
     <!-- Target Audience -->
     <section class="py-24 bg-gradient-to-b from-white to-gray-50" id="target-audience">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-5xl font-bold text-primary flex justify-center items-center gap-3">
+        <div class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
+            <div class="text-center mb-20">
+                <h2 class="text-3xl md:text-5xl font-bold text-primary flex justify-center items-center gap-4">
                     <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
                     הספר הזה נכתב במיוחד בשבילך אם:
                 </h2>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-12">
-                <div class="flex items-start gap-5 p-6 md:p-8 rounded-2xl bg-white border border-gray-100 hover:border-green-200 hover:shadow-lg transition duration-300 cursor-default">
-                    <div class="bg-green-50 p-2 md:p-3 rounded-full text-primary shrink-0 mt-1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
-                    <p class="text-lg md:text-xl text-gray-800 font-medium leading-relaxed">את רוצה לשמור על הבריאות בלי להסתבך במטבח</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+                <div class="flex items-start gap-6 p-8 rounded-[24px] bg-white border border-gray-100 hover:border-green-200 hover:shadow-lg transition duration-300 cursor-default">
+                    <div class="bg-green-50 p-3 rounded-full text-primary shrink-0 mt-1"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+                    <p class="text-xl md:text-2xl text-gray-800 font-medium leading-relaxed">את רוצה לשמור על הבריאות בלי להסתבך במטבח</p>
                 </div>
-                <div class="flex items-start gap-5 p-6 md:p-8 rounded-2xl bg-white border border-gray-100 hover:border-green-200 hover:shadow-lg transition duration-300 cursor-default">
-                    <div class="bg-green-50 p-2 md:p-3 rounded-full text-primary shrink-0 mt-1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
-                    <p class="text-lg md:text-xl text-gray-800 font-medium leading-relaxed">יש לך רגישות לגלוטן, סוכרת או צורך תזונתי מיוחד</p>
+                <div class="flex items-start gap-6 p-8 rounded-[24px] bg-white border border-gray-100 hover:border-green-200 hover:shadow-lg transition duration-300 cursor-default">
+                    <div class="bg-green-50 p-3 rounded-full text-primary shrink-0 mt-1"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+                    <p class="text-xl md:text-2xl text-gray-800 font-medium leading-relaxed">יש לך רגישות לגלוטן, סוכרת או צורך תזונתי מיוחד</p>
                 </div>
-                <div class="flex items-start gap-5 p-6 md:p-8 rounded-2xl bg-white border border-gray-100 hover:border-green-200 hover:shadow-lg transition duration-300 cursor-default">
-                    <div class="bg-green-50 p-2 md:p-3 rounded-full text-primary shrink-0 mt-1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
-                    <p class="text-lg md:text-xl text-gray-800 font-medium leading-relaxed">את מתגעגעת לדפדף בספר פיזי במקום במסך</p>
+                <div class="flex items-start gap-6 p-8 rounded-[24px] bg-white border border-gray-100 hover:border-green-200 hover:shadow-lg transition duration-300 cursor-default">
+                    <div class="bg-green-50 p-3 rounded-full text-primary shrink-0 mt-1"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+                    <p class="text-xl md:text-2xl text-gray-800 font-medium leading-relaxed">את מתגעגעת לדפדף בספר פיזי במקום במסך</p>
                 </div>
-                <div class="flex items-start gap-5 p-6 md:p-8 rounded-2xl bg-white border border-gray-100 hover:border-green-200 hover:shadow-lg transition duration-300 cursor-default">
-                    <div class="bg-green-50 p-2 md:p-3 rounded-full text-primary shrink-0 mt-1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
-                    <p class="text-lg md:text-xl text-gray-800 font-medium leading-relaxed">נמאס לך ממתכונים שנראים טוב אבל יוצאים רע</p>
+                <div class="flex items-start gap-6 p-8 rounded-[24px] bg-white border border-gray-100 hover:border-green-200 hover:shadow-lg transition duration-300 cursor-default">
+                    <div class="bg-green-50 p-3 rounded-full text-primary shrink-0 mt-1"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+                    <p class="text-xl md:text-2xl text-gray-800 font-medium leading-relaxed">נמאס לך ממתכונים שנראים טוב אבל יוצאים רע</p>
                 </div>
-                <div class="flex items-start gap-5 p-6 md:p-8 rounded-2xl bg-white border border-gray-100 hover:border-green-200 hover:shadow-lg transition duration-300 cursor-default">
-                    <div class="bg-green-50 p-2 md:p-3 rounded-full text-primary shrink-0 mt-1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
-                    <p class="text-lg md:text-xl text-gray-800 font-medium leading-relaxed">חשוב לך שהאוכל יהיה טעים באמת לכל המשפחה</p>
+                <div class="flex items-start gap-6 p-8 rounded-[24px] bg-white border border-gray-100 hover:border-green-200 hover:shadow-lg transition duration-300 cursor-default">
+                    <div class="bg-green-50 p-3 rounded-full text-primary shrink-0 mt-1"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+                    <p class="text-xl md:text-2xl text-gray-800 font-medium leading-relaxed">חשוב לך שהאוכל יהיה טעים באמת לכל המשפחה</p>
                 </div>
-                <div class="flex items-start gap-5 p-6 md:p-8 rounded-2xl bg-white border border-gray-100 hover:border-green-200 hover:shadow-lg transition duration-300 cursor-default">
-                    <div class="bg-green-50 p-2 md:p-3 rounded-full text-primary shrink-0 mt-1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
-                    <p class="text-lg md:text-xl text-gray-800 font-medium leading-relaxed">את רוצה שליטה מלאה על מה שנכנס לגוף שלך</p>
+                <div class="flex items-start gap-6 p-8 rounded-[24px] bg-white border border-gray-100 hover:border-green-200 hover:shadow-lg transition duration-300 cursor-default">
+                    <div class="bg-green-50 p-3 rounded-full text-primary shrink-0 mt-1"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+                    <p class="text-xl md:text-2xl text-gray-800 font-medium leading-relaxed">את רוצה שליטה מלאה על מה שנכנס לגוף שלך</p>
                 </div>
             </div>
 
             <div class="text-center mt-12 p-4">
-                <p class="text-gray-600 text-base md:text-lg leading-relaxed">
+                <p class="text-gray-600 text-lg md:text-xl leading-relaxed">
                     ואם כרגע נוח לך רק בפורמט דיגיטלי – <br class="md:hidden"/>
                     <a href="https://rivkaholtsberg.co.il/sefer-matkonim/digital-book.html" class="text-primary underline decoration-[#D4AF37]/50 hover:decoration-[#D4AF37] decoration-2 underline-offset-4 font-medium transition-all">
                         קיימת גם גרסה דיגיטלית נפרדת למי שצריכה פתרון נגיש יותר
@@ -377,34 +382,34 @@
     <!-- Testimonials -->
     <section id="testimonials" class="py-24 bg-[#1B4D3E]/5 relative">
         <div class="max-w-6xl mx-auto px-4 text-center">
-            <h2 class="text-3xl md:text-5xl font-bold text-primary mb-16">נשים מספרות על השינוי במטבח</h2>
+            <h2 class="text-3xl md:text-5xl font-bold text-primary mb-20">נשים מספרות על השינוי במטבח</h2>
             
             <div class="relative w-full max-w-4xl mx-auto">
                 <!-- Navigation Overlay -->
-                <div class="absolute top-1/2 -translate-y-1/2 w-full left-0 px-1 md:px-0 flex justify-between z-20 pointer-events-none">
-                     <button onclick="prevTestimonial()" class="pointer-events-auto p-3 md:p-4 rounded-full bg-white shadow-lg text-[#1B4D3E] hover:text-[#D4AF37] transition -ml-3 md:-ml-12">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="md:w-8 md:h-8"><path d="m9 18 6-6-6-6"/></svg>
+                <div class="absolute top-1/2 -translate-y-1/2 w-full left-0 px-2 md:px-0 flex justify-between z-20 pointer-events-none">
+                     <button onclick="prevTestimonial()" class="pointer-events-auto p-4 md:p-5 rounded-full bg-white shadow-xl text-[#1B4D3E] hover:text-[#D4AF37] transition -ml-4 md:-ml-14">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
                      </button>
-                     <button onclick="nextTestimonial()" class="pointer-events-auto p-3 md:p-4 rounded-full bg-white shadow-lg text-[#1B4D3E] hover:text-[#D4AF37] transition -mr-3 md:-mr-12">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="md:w-8 md:h-8"><path d="m15 18-6-6 6-6"/></svg>
+                     <button onclick="nextTestimonial()" class="pointer-events-auto p-4 md:p-5 rounded-full bg-white shadow-xl text-[#1B4D3E] hover:text-[#D4AF37] transition -mr-4 md:-mr-14">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
                      </button>
                 </div>
 
                 <div class="relative glass-card p-8 md:p-16 rounded-[40px] shadow-2xl flex flex-col items-center border border-white z-10">
-                    <div class="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-[#D4AF37] text-white p-4 rounded-full shadow-lg">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                    <div class="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-[#D4AF37] text-white p-4 rounded-full shadow-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
                     </div>
                     
                     <div class="mb-8 flex justify-center gap-2 mt-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="url(#gold-gradient)" stroke="none" stroke-width="0"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="url(#gold-gradient)" stroke="none" stroke-width="0"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="url(#gold-gradient)" stroke="none" stroke-width="0"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="url(#gold-gradient)" stroke="none" stroke-width="0"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="url(#gold-gradient)" stroke="none" stroke-width="0"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="url(#gold-gradient)" stroke="none" stroke-width="0"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="url(#gold-gradient)" stroke="none" stroke-width="0"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="url(#gold-gradient)" stroke="none" stroke-width="0"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="url(#gold-gradient)" stroke="none" stroke-width="0"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="url(#gold-gradient)" stroke="none" stroke-width="0"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
                     </div>
                     
                     <div class="flex flex-col items-center gap-4 w-full">
-                        <div class="w-full max-w-lg h-auto rounded-xl bg-gray-100 border-2 border-dashed border-gray-300 flex flex-col items-center justify-center p-2 transform rotate-1 hover:rotate-0 transition duration-300 shadow-sm hover:border-[#D4AF37] overflow-hidden">
+                        <div class="w-full max-w-lg h-auto rounded-2xl bg-white border-2 border-dashed border-gray-200 flex flex-col items-center justify-center p-3 shadow-sm hover:border-[#D4AF37] transition duration-300 overflow-hidden">
                             <img id="testimonial-img" src="hamlza1.png" alt="המלצה" class="w-full h-auto object-contain max-h-[600px]" />
                         </div>
                     </div>
@@ -416,54 +421,54 @@
 
     <!-- FAQ -->
     <section id="faq" class="py-24">
-        <div class="max-w-4xl mx-auto px-4">
+        <div class="max-w-4xl mx-auto px-6">
             <h2 class="text-3xl md:text-5xl font-bold text-center text-primary mb-16">שאלות נפוצות</h2>
             
             <div class="space-y-6" id="faq-container">
                 <div class="glass-card rounded-2xl overflow-hidden transition-all duration-300 border-white faq-item">
                     <button class="faq-btn w-full p-6 md:p-8 text-right flex justify-between items-center hover:bg-white/50 transition">
-                        <span class="faq-title font-bold text-lg md:text-xl text-gray-800">הספר מתאים גם למי שלא מבינה בבישול?</span>
+                        <span class="faq-title font-bold text-xl md:text-2xl text-gray-800">הספר מתאים גם למי שלא מבינה בבישול?</span>
                         <div class="faq-icon-bg p-3 md:p-4 rounded-full bg-gray-100 text-gray-500">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="faq-icon transform transition-transform duration-300"><path d="m15 18-6-6 6-6"/></svg>
                         </div>
                     </button>
-                    <div class="faq-content px-6 md:px-8 text-gray-600 bg-white/40 max-h-0 py-0 opacity-0 overflow-hidden text-base md:text-lg leading-relaxed">
+                    <div class="faq-content px-6 md:px-8 text-gray-600 bg-white/40 max-h-0 py-0 opacity-0 overflow-hidden text-lg md:text-xl leading-relaxed">
                         בוודאי! המתכונים נכתבו מתוך מחשבה על פשטות וקלות. כל שלב מוסבר בבהירות, והתוצאות תמיד מרשימות.
                     </div>
                 </div>
 
                 <div class="glass-card rounded-2xl overflow-hidden transition-all duration-300 border-white faq-item">
                     <button class="faq-btn w-full p-6 md:p-8 text-right flex justify-between items-center hover:bg-white/50 transition">
-                        <span class="faq-title font-bold text-lg md:text-xl text-gray-800">האם המרכיבים נגישים?</span>
+                        <span class="faq-title font-bold text-xl md:text-2xl text-gray-800">האם המרכיבים נגישים?</span>
                         <div class="faq-icon-bg p-3 md:p-4 rounded-full bg-gray-100 text-gray-500">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="faq-icon transform transition-transform duration-300"><path d="m15 18-6-6 6-6"/></svg>
                         </div>
                     </button>
-                    <div class="faq-content px-6 md:px-8 text-gray-600 bg-white/40 max-h-0 py-0 opacity-0 overflow-hidden text-base md:text-lg leading-relaxed">
+                    <div class="faq-content px-6 md:px-8 text-gray-600 bg-white/40 max-h-0 py-0 opacity-0 overflow-hidden text-lg md:text-xl leading-relaxed">
                         כן. רוב המרכיבים זמינים בכל סופר. עבור המיוחדים יותר, הוספתי מדריך רכישה מפורט והמלצות לתחליפים.
                     </div>
                 </div>
 
                 <div class="glass-card rounded-2xl overflow-hidden transition-all duration-300 border-white faq-item">
                     <button class="faq-btn w-full p-6 md:p-8 text-right flex justify-between items-center hover:bg-white/50 transition">
-                        <span class="faq-title font-bold text-lg md:text-xl text-gray-800">הילדים יאכלו את זה?</span>
+                        <span class="faq-title font-bold text-xl md:text-2xl text-gray-800">הילדים יאכלו את זה?</span>
                         <div class="faq-icon-bg p-3 md:p-4 rounded-full bg-gray-100 text-gray-500">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="faq-icon transform transition-transform duration-300"><path d="m15 18-6-6 6-6"/></svg>
                         </div>
                     </button>
-                    <div class="faq-content px-6 md:px-8 text-gray-600 bg-white/40 max-h-0 py-0 opacity-0 overflow-hidden text-base md:text-lg leading-relaxed">
+                    <div class="faq-content px-6 md:px-8 text-gray-600 bg-white/40 max-h-0 py-0 opacity-0 overflow-hidden text-lg md:text-xl leading-relaxed">
                         זו השאלה הכי חשובה. התשובה היא כן חד משמעי. הספר נבנה מתוך הבית שלי, והילדים הם המבקרים הכי קשוחים שלי.
                     </div>
                 </div>
 
                 <div class="glass-card rounded-2xl overflow-hidden transition-all duration-300 border-white faq-item">
                     <button class="faq-btn w-full p-6 md:p-8 text-right flex justify-between items-center hover:bg-white/50 transition">
-                        <span class="faq-title font-bold text-lg md:text-xl text-gray-800">מתי אקבל את הספר?</span>
+                        <span class="faq-title font-bold text-xl md:text-2xl text-gray-800">מתי אקבל את הספר?</span>
                         <div class="faq-icon-bg p-3 md:p-4 rounded-full bg-gray-100 text-gray-500">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="faq-icon transform transition-transform duration-300"><path d="m15 18-6-6 6-6"/></svg>
                         </div>
                     </button>
-                    <div class="faq-content px-6 md:px-8 text-gray-600 bg-white/40 max-h-0 py-0 opacity-0 overflow-hidden text-base md:text-lg leading-relaxed">
+                    <div class="faq-content px-6 md:px-8 text-gray-600 bg-white/40 max-h-0 py-0 opacity-0 overflow-hidden text-lg md:text-xl leading-relaxed">
                         הגרסה הדיגיטלית נוחתת אצלך במייל מיד לאחר הרכישה. הגרסה המודפסת יוצאת למשלוח תוך 24 שעות.
                     </div>
                 </div>
@@ -472,64 +477,65 @@
     </section>
 
     <!-- Pricing / Final CTA -->
-    <section id="purchase" class="py-24 bg-primary relative overflow-hidden text-center">
+    <section id="purchase" class="py-32 bg-primary relative overflow-hidden text-center">
         <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPgo8cmVjdCB3aWR0aD0iOCIgaGVpZ2h0PSI4IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuMDUiLz4KPC9zdmc+')] opacity-10"></div>
         <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent opacity-50"></div>
         
-        <div class="max-w-4xl mx-auto px-4 relative z-10">
-            <h2 class="text-3xl md:text-6xl font-black text-white mb-12 tracking-tight">הזמן שלך לבשל באהבה<br/>מתחיל כאן.</h2>
+        <div class="max-w-4xl mx-auto px-6 relative z-10">
+            <h2 class="text-4xl md:text-6xl font-black text-white mb-12 tracking-tight">הזמן שלך לבשל באהבה<br/>מתחיל כאן.</h2>
             
-            <div class="bg-white rounded-[40px] p-8 md:p-14 shadow-2xl max-w-lg mx-auto transform hover:scale-105 transition duration-500 relative border-8 border-white/20 bg-clip-padding">
-                <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 gold-badge-shine text-white px-8 py-3 rounded-full font-bold shadow-xl text-lg uppercase tracking-wider whitespace-nowrap border-2 border-white/30 z-20">
+            <div class="bg-white rounded-[40px] p-10 md:p-16 shadow-2xl max-w-xl mx-auto transform hover:scale-105 transition duration-500 relative border-8 border-white/20 bg-clip-padding">
+                <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 gold-badge-shine text-white px-10 py-3 rounded-full font-bold shadow-xl text-xl uppercase tracking-wider whitespace-nowrap border-2 border-white/30 z-20">
                     מחיר השקה מיוחד
                 </div>
 
-                <h3 class="text-2xl md:text-3xl font-bold text-primary mb-2 mt-4">המטבח הבריא שלי</h3>
-                <p class="text-gray-500 mb-8 font-medium text-lg">מהדורה מודפסת יוקרתית + עותק דיגיטלי</p>
+                <h3 class="text-3xl font-bold text-primary mb-3 mt-4">המטבח הבריא שלי</h3>
+                <p class="text-gray-500 mb-10 font-medium text-xl">מהדורה מודפסת יוקרתית + עותק דיגיטלי</p>
                 
-                <div class="flex flex-col items-center justify-center mb-6">
-                    <span class="text-2xl md:text-3xl text-gray-400 line-through decoration-red-400 decoration-2 mb-1">₪129</span>
+                <div class="flex flex-col items-center justify-center mb-8">
+                    <span class="text-3xl text-gray-400 line-through decoration-red-400 decoration-2 mb-2">₪129</span>
                     <div class="flex items-start gap-1">
-                        <span class="text-4xl md:text-5xl font-bold text-primary mt-2">₪</span>
+                        <span class="text-4xl font-bold text-primary mt-2">₪</span>
                         <span class="text-8xl font-black text-primary leading-none">99</span>
                     </div>
-                    <p class="text-[#D4AF37] font-medium text-lg mt-4">ספר אחד שיחליף לך עשרות מתכונים שלא עובדים</p>
+                    <p class="text-[#D4AF37] font-bold text-xl mt-4">ספר אחד שיחליף לך עשרות מתכונים שלא עובדים</p>
                 </div>
                 
                 <div class="mb-10 flex justify-center">
-                    <div class="bg-green-50 px-5 py-3 rounded-full flex items-center gap-2 text-primary font-medium text-base">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13"/><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5"/></svg>
+                    <div class="bg-green-50 px-6 py-3 rounded-full flex items-center gap-3 text-primary font-medium text-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13"/><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5"/></svg>
                         כולל גישה מיידית לגרסה הדיגיטלית
                     </div>
                 </div>
 
-                <div class="mb-6">
-                    <span class="text-gray-600 font-medium text-lg md:text-xl">אם הגעת עד כאן – את כבר מבינה שזה בדיוק בשבילך</span>
+                <div class="mb-8">
+                    <span class="text-gray-700 font-medium text-xl">אם הגעת עד כאן – את כבר מבינה שזה בדיוק בשבילך</span>
                 </div>
                 
-                <a href="https://private.invoice4u.co.il/newsite/he/clearing/public/i4u-clearing?ProductGuid=01f99036-3332-4744-a2bc-1a6f96893572" target="_blank" rel="noopener noreferrer" class="w-full btn-gold py-5 md:py-6 rounded-full font-bold text-xl md:text-2xl shadow-xl shadow-[#D4AF37]/30 mb-8 flex justify-center items-center gap-3 group">
+                <a href="https://private.invoice4u.co.il/newsite/he/clearing/public/i4u-clearing?ProductGuid=01f99036-3332-4744-a2bc-1a6f96893572" target="_blank" rel="noopener noreferrer" class="w-full btn-gold py-6 rounded-full font-bold text-2xl shadow-xl shadow-[#D4AF37]/30 mb-8 flex justify-center items-center gap-3 group">
                     <span>כן, אני רוצה את הספר!</span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:-translate-x-1 transition-transform"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
                 </a>
                 
-                <div class="flex justify-center gap-6 text-sm md:text-base text-gray-500 font-medium uppercase tracking-wide">
-                    <span class="flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> תשלום מאובטח</span>
-                    <span class="flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> משלוח מהיר</span>
+                <div class="flex justify-center gap-8 text-sm md:text-base text-gray-500 font-medium uppercase tracking-wide">
+                    <span class="flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> תשלום מאובטח</span>
+                    <span class="flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> משלוח מהיר</span>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-[#153e32] text-white py-20 pb-36 text-center border-t border-white/5">
+    <footer class="bg-[#153e32] text-white py-20 pb-40 text-center border-t border-white/5">
         <div class="max-w-3xl mx-auto px-4 space-y-8">
             <div class="w-24 h-24 bg-white rounded-full mx-auto flex items-center justify-center border-4 border-white/10 overflow-hidden relative shadow-lg">
-                <img src="logo.jpg.png" alt="לוגו רבקה הולצברג" class="w-full h-full object-cover" />
+                <!-- תמונת הפוטר עודכנה -->
+                <img src="profile.jpg.jpg" alt="רבקה הולצברג" class="w-full h-full object-cover" />
             </div>
             
             <div>
-                <h3 class="text-xl md:text-2xl font-bold mb-4 text-accent">רבקה הולצברג</h3>
-                <p class="text-gray-400 text-lg leading-relaxed max-w-lg mx-auto">
+                <h3 class="text-2xl md:text-3xl font-bold mb-4 text-accent">רבקה הולצברג</h3>
+                <p class="text-gray-400 text-lg md:text-xl leading-relaxed max-w-lg mx-auto">
                     בריאות שבאה מהטבע
                 </p>
             </div>
@@ -537,10 +543,10 @@
     </footer>
 
     <!-- Sticky Floating Purchase Button -->
-    <div class="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50 w-[90%] max-w-[400px]">
-        <a href="https://private.invoice4u.co.il/newsite/he/clearing/public/i4u-clearing?ProductGuid=01f99036-3332-4744-a2bc-1a6f96893572" target="_blank" rel="noopener noreferrer" class="w-full btn-gold py-4 px-6 rounded-full font-bold text-lg md:text-xl shadow-[0_10px_30px_rgba(0,0,0,0.3)] border-2 border-white/20 flex justify-center items-center gap-3 transition-transform hover:scale-105">
+    <div class="fixed bottom-6 md:bottom-8 left-1/2 transform -translate-x-1/2 z-50 w-[95%] max-w-[420px]">
+        <a href="https://private.invoice4u.co.il/newsite/he/clearing/public/i4u-clearing?ProductGuid=01f99036-3332-4744-a2bc-1a6f96893572" target="_blank" rel="noopener noreferrer" class="w-full btn-gold py-4 px-6 rounded-full font-bold text-lg md:text-xl shadow-[0_10px_40px_rgba(0,0,0,0.4)] border-2 border-white/20 flex justify-center items-center gap-3 transition-transform hover:scale-105">
             כן, אני רוצה להתחיל לבשל בריא באמת
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
         </a>
     </div>
 
@@ -635,8 +641,6 @@
             document.getElementById('recipe-tag').innerText = recipes[currentRecipe].tag;
             document.getElementById('recipe-title').innerText = recipes[currentRecipe].title;
             document.getElementById('recipe-desc').innerText = recipes[currentRecipe].desc;
-            document.getElementById('recipe-time').innerText = recipes[currentRecipe].time;
-            document.getElementById('recipe-diff').innerText = recipes[currentRecipe].difficulty;
         }
 
         window.nextRecipe = () => {
